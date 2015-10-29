@@ -1,0 +1,88 @@
+
+ -- Install Sublime Text --
+
+Install "Sublime Text Build 3065 x64 Setup.exe"
+
+	Was downloaded from: http://www.sublimetext.com/3
+
+Launch Sublime 
+
+Go to Menu 'View > Show Console' to open the console.
+
+
+Install the Package Control
+
+	Go to link: https://packagecontrol.io/installation
+
+	Copy the Python script from the tab for "SUBLIME TEXT 3"
+
+	Paste the code into the console of Sublime and hit enter.
+
+	Installation progress will be displayed in the lower left corner of Sublime.
+
+	Restart Sublime
+
+
+Use Package Control to install Lua Dev
+
+	Go to menu 'Preferences > Package Control'
+	
+	In the edit box type "Install Package" to find and select it.
+
+	In the edit box type "Lua Dev" to find and select it.
+
+	Installation progress will be displayed in the lower left corner of Sublime.
+
+	Restart Sublime
+
+	Open a lua script and go to the menu 'Tools > Build' to run the script.
+
+
+Use Package Control to install SublimeLinter
+
+	Go to menu 'Preferences > Package Control'
+	
+	In the edit box type "Install Package" to find and select it.
+
+	In the edit box type "SublimeLinter" to find and select it.
+
+	Installation progress will be displayed in the lower left corner of Sublime.
+
+	Restart Sublime
+
+	More info: http://www.sublimelinter.com/en/latest/index.html
+
+
+Use Package Control to install SublimeLinter-Lua
+
+	Go to menu 'Preferences > Package Control'
+	
+	In the edit box type "Install Package" to find and select it.
+
+	In the edit box type "SublimeLinter-Lua" to find and select it.
+
+	Installation progress will be displayed in the lower left corner of Sublime.
+
+	Restart Sublime
+
+	More info: https://github.com/SublimeLinter/SublimeLinter-lua
+
+-------------------------------------
+
+
+ -- Sublime Text (Optional) --
+
+Use Package Control to install SidebarEnhancements
+
+	Go to menu 'Preferences > Package Control'
+	
+	In the edit box type "Install Package" to find and select it.
+
+	In the edit box type "SidebarEnhancements" to find and select it.
+
+	Installation progress will be displayed in the lower left corner of Sublime.
+
+	Restart Sublime
+
+	More info: https://github.com/titoBouzout/SideBarEnhancements
+

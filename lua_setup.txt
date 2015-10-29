@@ -1,0 +1,127 @@
+
+ -- Install Lua --
+
+On Windows, download and install "LuaForWindows_v5.1.4-46.exe" from here:
+
+	https://code.google.com/p/luaforwindows/
+
+Once installed you should be able to run the lua command from the console.
+
+On windowsYou can quickly open a command console at a particular folder by pressing and 
+holding the Shift key and then right clicking on the folder and then selecting 
+"Open Command Window Here".
+
+On Mac OSX:
+
+If you don't have Homebrew installed, install Homebrew by copying and pasting this into a terminal:
+
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+Instructions for this were found here:
+
+	http://brew.sh/
+
+Then use Homebrew to install Lua in the terminal by typing:
+
+	brew install lua
+
+Once installed you should be able to run the "lua" command from the console.
+
+--------------------------------------------------------------------------------
+
+ -- Sublime Text --
+
+Install Sublime Text 3
+
+	http://www.sublimetext.com/3
+
+Install the Package Control
+
+	Go to link: https://packagecontrol.io/installation
+
+	Copy the Python script from the tab for "SUBLIME TEXT 3"
+
+	Paste the code into the console of Sublime and hit enter.
+
+	Installation progress will be displayed in the lower left corner of Sublime.
+
+	Restart Sublime
+
+
+Use Package Control to install "Fix Mac Path".
+
+	Go to menu 'Preferences > Package Control'
+	
+	In the edit box type "Install Package" to find and select it.
+
+	In the edit box type "Fix Mac Path"" to find and select it.
+
+	Installation progress will be displayed in the lower left corner of Sublime.
+
+	Restart Sublime
+
+
+Use Package Control to install "Lua Dev"
+
+	Go to menu 'Preferences > Package Control'
+	
+	In the edit box type "Install Package" to find and select it.
+
+	In the edit box type "Lua Dev" to find and select it.
+
+	Installation progress will be displayed in the lower left corner of Sublime.
+
+	Restart Sublime
+
+	Open a Lua script and go to the menu 'Tools > Build' to run the script.
+
+
+--------------------------------------------------------------------------------
+
+This following are optional but very useful.
+
+
+Use Package Control to install SublimeLinter
+
+	Go to menu 'Preferences > Package Control'
+	
+	In the edit box type "Install Package" to find and select it.
+
+	In the edit box type "SublimeLinter" to find and select it.
+
+	Installation progress will be displayed in the lower left corner of Sublime.
+
+	Restart Sublime
+
+	More info: http://www.sublimelinter.com/en/latest/index.html
+
+
+Use Package Control to install SublimeLinter-Lua
+
+	Go to menu 'Preferences > Package Control'
+	
+	In the edit box type "Install Package" to find and select it.
+
+	In the edit box type "SublimeLinter-Lua" to find and select it.
+
+	Installation progress will be displayed in the lower left corner of Sublime.
+
+	Restart Sublime
+
+	More info: https://github.com/SublimeLinter/SublimeLinter-lua
+
+
+Use Package Control to install SidebarEnhancements.
+
+	Go to menu 'Preferences > Package Control'
+	
+	In the edit box type "Install Package" to find and select it.
+
+	In the edit box type "SidebarEnhancements" to find and select it.
+
+	Installation progress will be displayed in the lower left corner of Sublime.
+
+	Restart Sublime
+
+	More info: https://github.com/titoBouzout/SideBarEnhancements
+
