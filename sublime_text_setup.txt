@@ -1,16 +1,16 @@
+While you can use any text editor you like to write Lua scripts, Sublime Text 3
+is the official editor used by Corona so we'll go with that.
 
- -- Install Sublime Text --
+--------------------------------------------------------------------------------
 
-Install "Sublime Text Build 3065 x64 Setup.exe"
+ -- Sublime Text --
 
-	Was downloaded from: http://www.sublimetext.com/3
+Download and install Sublime Text 3
 
-Launch Sublime 
-
-Go to Menu 'View > Show Console' to open the console.
+	http://www.sublimetext.com/3
 
 
-Install the Package Control
+Install Package Control for Sublime Text 3 so we can install several other packages.
 
 	Go to link: https://packagecontrol.io/installation
 
@@ -23,7 +23,20 @@ Install the Package Control
 	Restart Sublime
 
 
-Use Package Control to install Lua Dev
+Use Package Control to install "Fix Mac Path".
+
+	Go to menu 'Preferences > Package Control'
+	
+	In the edit box type "Install Package" to find and select it.
+
+	In the edit box type "Fix Mac Path"" to find and select it.
+
+	Installation progress will be displayed in the lower left corner of Sublime.
+
+	Restart Sublime
+
+
+Use Package Control to install "Lua Dev"
 
 	Go to menu 'Preferences > Package Control'
 	
@@ -35,7 +48,24 @@ Use Package Control to install Lua Dev
 
 	Restart Sublime
 
-	Open a lua script and go to the menu 'Tools > Build' to run the script.
+	Open a Lua script and go to the menu 'Tools > Build' to run the script.
+
+
+Launch Sublime Text
+
+	Go to menu 'Preferences > Package Control'
+	
+	In the edit box type "Install Package" to find and select it.
+
+	In the edit box type "Corona Editor" to find and select it.
+
+	Installation progress will be displayed in the lower left corner of Sublime.
+
+	Restart Sublime
+
+--------------------------------------------------------------------------------
+
+This following are optional but very useful.
 
 
 Use Package Control to install SublimeLinter
@@ -67,12 +97,8 @@ Use Package Control to install SublimeLinter-Lua
 
 	More info: https://github.com/SublimeLinter/SublimeLinter-lua
 
--------------------------------------
 
-
- -- Sublime Text (Optional) --
-
-Use Package Control to install SidebarEnhancements
+Use Package Control to install SidebarEnhancements.
 
 	Go to menu 'Preferences > Package Control'
 	

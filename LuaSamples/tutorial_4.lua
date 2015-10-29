@@ -1,125 +1,69 @@
 
---[[
-
--- A simple Lua function that prints "Game Over!".
-
+-- Define a simple Lua function that prints "Game Over!".
 function printGameOver()
-
 	print( "Game Over!" )
-
 end
 
+-- Now, call our new function to execute it!
 printGameOver()
 
---]]
-
 --==============================================================================
 
---[[
-
--- A Lua function that takes a single argument and prints "Game Over... "
+-- This Lua function takes a single argument and prints "Game Over... "
 -- with a player's name appended to the end.
-
 function printGameOver( playersName )
-
 	print( "Game Over... " .. playersName )
-
 end
 
+-- Now, call our new and improved function and pass in the player's name.
 printGameOver( "1337_haXor" )
 
---]]
-
 --==============================================================================
 
---[[
-
--- A Lua function that takes two arguments.
-
+-- Here's a Lua function that takes two arguments.
 function printGameOver( playersName, totalKills )
-
 	print( "Game Over... " .. playersName .. "!" )
 	print( "Total Kills: " .. totalKills )
-
 end
 
-printGameOver( "1337_haXor", 15 ) -- Correct argument order.
-printGameOver( 12, "killaHurtz" ) -- Incorrect argument order!
-
---]]
+printGameOver( "1337_haXor", 15000 ) 
+printGameOver( "killaHurtz", 12500 )
 
 --==============================================================================
-
---[[
 
 -- A simple Lua function that takes two arguments and returns a single value.
 
-function incrementCount( number, amountToInc )
-
-    return number + amountToInc
-
+function addTwoNumbers( number1, number2 )
+    return number1 + number2
 end
 
-local number = 0
+local number = 10
+
 print( number )
 
-number = incrementCount( number, 10 )
+number = addTwoNumbers( number, 5 )
+
 print( number )
 
--- Leaving off trailing arguments is possible, but be ready to handle their absence.
---number = incrementCount( number )
---print( number )
-
---]]
-
 --==============================================================================
 
---[[
-
-function testFunc( someVar )
-
+function testFunction( someVar )
     print( someVar )
-
 end
 
--- Typical calling style using ().
-testFunc( "Hello World!" )
+-- The typical calling style for functions uses () around the arguments.
+testFunction( "Hello World!" )
 
--- Non-typical calling style without (). Avoid this style!
-testFunc "Hello World!"
+-- You may also see the less popular or non-typical calling style used that 
+-- drops the (). Avoid this style since it can lead to crashes.
+testFunction "Hello World!"
 
--- Here's an example where the lack of () causes problems.
---testFunc "Hello " .. "World!"
-
---]]
-
---==============================================================================
-
---[[
-
-function testFunc( someVar )
-
-    print( someVar )
-
-end
-
-local tableWithFunc =
-{
-    aNumber = 55,
-    aString = "test",
-    aFunc = testFunc
-}
-
-tableWithFunc.aFunc( "You can store and call a function from a table!" )
-
---]]
+-- Here's an example where the lack of () causes a crash.
+--testFunction "Hello " .. "World!"
 
 --==============================================================================
 
---[[
-
--- A function that returns the average value of the values contained in a table.
-
+-- This function returns the average value of the all values contained in a table.
 function average( numberList )
 
 	local numCount = 0
@@ -142,18 +86,10 @@ local theAverage = average( myNumbers )
 
 print( "The average of the list is " .. theAverage .. ".\n" )
 
-
---]]
-
 --==============================================================================
 
---[[
-
--- A function that returns the average value and the total number of values 
--- contained in a table.
-
-local myNumbers = { 5.0, 7.0, 8.0, 2.0 }
-
+-- This function is almost identical to the one above, but it returns the 
+-- average value and the total number of values contained in a table.
 function averageAndCount( numberList )
 
 	local numCount = 0
@@ -171,112 +107,11 @@ function averageAndCount( numberList )
 
 end
 
+local myNumbers = { 5.0, 7.0, 8.0, 2.0 }
+
+-- When a function returns more than one value, catch them in multiple variables
 local theAverage, numberCount = averageAndCount( myNumbers )
 
 print( "The average of the list is " .. theAverage .. "." )
 print( "The list contained " .. numberCount .. " numbers." )
 
---]]
-
---==============================================================================
-
---[[
-
--- This Lua function can print two arguments, but what if we want to print
--- N number of arguments?
-
-function printTwoVars( var1, var2 )
-
-    print( var1 )
-    print( var2 )
-
-end
-
-printTwoVars( 1, 2 )
-
--- The '...' operator tells Lua to support a Variable Arguments table which
--- is always named 'arg'.
-
-function printManyVars( var1, var2, ... )
-
-    print( var1 )
-    print( var2 )
-
-    -- The extra arguments are stored in the "arg" table.
-
-    for i = 1, #arg do
-         print( arg[i] )
-    end
-
-end
-
-printManyVars( 10, 20, 30 )
-printManyVars( 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000 )
-
---]]
-
---==============================================================================
-
---[[
-
--- Be careful, Lua is Dynamically Typed, so the user could pass anything
--- including nil as arguments. It's your job to verify the input!
-
-function incrementCount( number, amountToInc )
-
-    -- Check to see if we have at least one non-nil value to work with.
-    if number == nil then
-
-        print( "Error calling incrementCount() - You must pass at least one number to increment." )
-        return nil
-
-    end
-
-    -- Check to make sure that the number argument is actually a number.
-    if type( number ) ~= "number" then
-
-        print( "Error calling incrementCount() - All arguments must be numbers." )
-        return nil
-
-    end
-
-    -- If amountToInc is not nil... check to make sure that it is number as well.
-    if amountToInc ~= nil then
-
-        if type( amountToInc ) ~= "number" then
-
-            print( "Error calling incrementCount() - All arguments must be numbers." )
-            return nil
-
-        end
-
-    end
-
-    -- Below is a very common Lua convention for dealing with possible nil
-    -- arguments that can be set to some default value.
-
-    -- If amountToInc is nil... set its value to be 1 as a default value.
-    amountToInc = amountToInc or 1
-
-    return number + amountToInc
-
-end
-
-local number = 5
-number = incrementCount( number )
-print( number )
-
-number = 5
-number = incrementCount( number, 10 )
-print( number )
-
---number = 5
---number = incrementCount()
---print( number )
-
---number = 5
---number = incrementCount( number, "blah" )
---print( number )
-
-
---]]

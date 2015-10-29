@@ -3,22 +3,3 @@
 
 https://coronalabs.com/
 
--------------------------------------
-
- -- Corona Plugin for Sublime Text --
-
-Launch Sublime Text
-
-Go to menu 'Preferences > Package Control'
-	
-In the edit box type "Install Package" to find and select it.
-
-In the edit box type "Corona Editor" to find and select it.
-
-Installation progress will be displayed in the lower left corner of Sublime.
-
-Restart Sublime
-
------------------------------------
-
-

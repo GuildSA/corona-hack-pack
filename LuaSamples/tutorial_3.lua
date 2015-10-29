@@ -1,71 +1,28 @@
---==============================================================================
---File:     tutorial_3.lua
---Author:   Kevin Harris
---Date:     March 25, 2015
---Descript: 
---Note:
---==============================================================================
-
---[[
 
 -- A simple 'for' loop that loops or iterates 3 times and prints the index variable.
 
 for i = 1, 3 do
-
     print( "i = " .. i )
-
 end
 
 print( " " )
 
---]]
 
 --==============================================================================
-
---[[
 
 -- This more complicated 'for' loop will start at 1 and then print all the odd
 -- numbers from 1 to 10, by incrementing the index variable by 2 every iteration.
 
 for i = 1, 10, 2 do
-
      print( "i = " .. i )
-
 end
 
---]]
+print( " " )
 
 --==============================================================================
-
---[[
-
--- Also, 'for' loops can iterate over tables by using the # operator which tells 
--- the 'for' loop how many items are being stored in the table.
-
-local weapons = 
-{
-    "Pistol",
-    "Rifle",
-    "Grenade",
-    "Shotgun",
-    "Rocket Launcher",
-    "Phased Plasma Rifle (in the 40 watt range)"
-}
-
-for i = 1, #weapons do
-
-    print( weapons[i] )
-
-end
-
---]]
-
---==============================================================================
-
---[[
 
 -- The 'break' keyword can force a 'for' loop to stop iterating and exit out.
--- Please Note: Unlike C#, Lua has no 'continue' keyword.
+-- Please Note: Unlike other languages, Lua has no 'continue' keyword.
 
 local numbers = { 100, 25, 125, 50, 150, 75, 175 }
 
@@ -83,11 +40,9 @@ for i = 1, #numbers do
 
 end
 
---]]
+print( " " )
 
 --==============================================================================
-
---[[
 
 -- The 'while' loop continues looping while the expression is true.
 
@@ -102,11 +57,9 @@ while rocketCount < numRocketsToFire do
 
 end
 
---]]
+print( " " )
 
 --==============================================================================
-
---[[
 
 -- The 'break' keyword can also break out of a 'while' loop.
 
@@ -124,14 +77,12 @@ while number < 10 do
 
 end
 
---]]
+print( " " )
 
 --==============================================================================
 
---[[
-
 -- The 'repeat-until' loop is like an upside 'while' loop that continues looping
--- while the expression is false instead of true.
+-- as long as the expression is false.
 
 local number = 0
 
@@ -143,4 +94,4 @@ repeat
 
 until number >= 5
 
---]]
+

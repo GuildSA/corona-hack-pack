@@ -8,7 +8,7 @@ print( "Hello World!" )
 -- multiple lines by bracketing the lines with '--[[ ]]--'
 
 --[[
-	This is a multi-line comment for those who are verbose in their commenting style.
+	This is a multi-line comment for those who like to write a lot!
 --]]
 
 --==============================================================================
@@ -32,35 +32,31 @@ thread
 If you’re uncertain of a value’s type, use the type() function to verify its type
 --]]
 
--- var1 = 10
--- var2 = "test"
+var1 = 10
+var2 = "test"
 
--- print( var1 )
--- print( type(var1) )
+print( var1 )
+print( type(var1) )
 
--- print( var2 )
--- print( type(var2) )
+print( var2 )
+print( type(var2) )
 
 -- Assigning nil to a variable deletes or invalidates it.
 
--- var1 = nil
--- print( var1 )
--- print( type(var1) )
+var1 = nil
+print( var1 )
+print( type(var1) )
 
 --==============================================================================
 
 -- You can use letters, digits, and underscores when naming your variables, but 
 -- you can not start a variable with a digit.
 
---[[
-
 var   = 0 -- Fine.
 var1  = 0 -- Fine.
 var_1 = 0 -- Fine.
 _var  = 0 -- Fine.
 -- 1var  = 0 -- Syntax Error!
-
---]]
 
 -- Also, you can’t name your variables after any of Lua’s reserved keywords:
 --
@@ -112,8 +108,6 @@ print( type(myBoolean) )
 
 --==============================================================================
 
---[[
-
 -- Lua supports the automatic coercion of types.
 
 myNumber = 6
@@ -127,8 +121,6 @@ print( sum )
 
 widthAsNumber = tonumber( "1024" )
 widthAsString = tostring( 1024 )
-
---]]
 
 --==============================================================================
   

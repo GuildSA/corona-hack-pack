@@ -42,6 +42,52 @@ local mixedTable =
 
 --==============================================================================
 
+--[[
+
+function testFunc( someVar )
+
+    print( someVar )
+
+end
+
+local tableWithFunc =
+{
+    aNumber = 55,
+    aString = "test",
+    aFunc = testFunc
+}
+
+tableWithFunc.aFunc( "You can store and call a function from a table!" )
+
+--]]
+
+--==============================================================================
+
+--[[
+
+-- Also, 'for' loops can iterate over tables by using the # operator which tells 
+-- the 'for' loop how many items are being stored in the table.
+
+local weapons = 
+{
+    "Pistol",
+    "Rifle",
+    "Grenade",
+    "Shotgun",
+    "Rocket Launcher",
+    "Phased Plasma Rifle (in the 40 watt range)"
+}
+
+for i = 1, #weapons do
+
+    print( weapons[i] )
+
+end
+
+--]]
+
+--==============================================================================
+
 
 --[[
 
