@@ -1,5 +1,0 @@
-
- -- Install Corona SDK --
-
-https://coronalabs.com/
-

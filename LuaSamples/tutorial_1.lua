@@ -1,11 +1,11 @@
 
--- This is a programming tradition...
+-- Having a program or script print out "Hello World" is a programming tradition...
 print( "Hello World!" )
 
---==============================================================================
+-- By the way, when a line of text starts with two hyphens '--', it's a comment.
+-- Comments are just notes added by a programmer to explain what the code is doing.
 
--- Single line comments begin with two hyphens '--', but you can comment out
--- multiple lines by bracketing the lines with '--[[ ]]--'
+-- If you want to have multiple lines of comments, you can bracket the lines with '--[[ ]]--'
 
 --[[
 	This is a multi-line comment for those who like to write a lot!
@@ -13,32 +13,27 @@ print( "Hello World!" )
 
 --==============================================================================
 
---[[
-Variables act as place holders or symbolic representations for values.
-Lua is Dynamic Typed (run-time vs. compile-time), therefore, variables do not 
-have types - only the values held by variables have types.
 
-The value of a variable can have one of eight basic types in Lua:
-
-nil 
-boolean
-number
-string
-table
-function
-userdata 
-thread
-
-If you’re uncertain of a value’s type, use the type() function to verify its type
---]]
+-- Variables are used to hold a value such as a number or a string of characters.
 
 var1 = 10
-var2 = "test"
+var2 = "This is a string!"
 
 print( var1 )
-print( type(var1) )
-
 print( var2 )
+
+-- Lua is a Dynamically Typed language, therefore, variables can be reassigned to
+-- other values even if the type is different.
+
+var1 = "Now, this var is a string!"
+var2 = 20
+
+print( var1 )
+print( var2 )
+
+-- If you're uncertain of a value's type, use the type() function to see what it is.
+
+print( type(var1) )
 print( type(var2) )
 
 -- Assigning nil to a variable deletes or invalidates it.
@@ -58,7 +53,7 @@ var_1 = 0 -- Fine.
 _var  = 0 -- Fine.
 -- 1var  = 0 -- Syntax Error!
 
--- Also, you can’t name your variables after any of Lua’s reserved keywords:
+-- Also, you can't name your variables after any of Lua's reserved keywords:
 --
 -- and break do else elseif
 -- end false for function if
