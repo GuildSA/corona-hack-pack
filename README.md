@@ -122,4 +122,4 @@ Use Package Control to install **SidebarEnhancements**
 
 ##Install the Corona SDK
 
-Download the Corona SD from [here](https://coronalabs.com/)
+Download the Corona SDK from [here](https://coronalabs.com/)
