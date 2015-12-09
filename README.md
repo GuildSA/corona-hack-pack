@@ -1,6 +1,8 @@
 # CoronaHackPack
 The CoronaHackPack is a collection of instructions, tutorials and code samples designed to help newbie coders learn the basics of scripting and game development using Lua and the Corona SDK.
 
+This educational resource is being developed by The Guild of Software Architects for the [hack|ed hackathon](http://hack-ed.ntec-inc.org/) in February 26, 2016. This hackathon was conceived and organized by [The North Texas Enterprise Center (NTEC)](http://www.ntec-inc.org/), [Parish Episcopal School](http://www.parishepiscopal.org/), [iLLUMINATE STEM](http://www.illuminatestem.org/) and the [Guild of Software Architects](http://www.guildsa.org/).
+
 ##Install Lua
 
 While the Corona SDK will install it's own private version of Lua, it's good to go ahead install Lua in the typical way so we can run and test Lua scripts at a command prompt or terminal.
