@@ -45,19 +45,32 @@ function scene:create( event )
 
 	local sceneGroup = self.view
 
+	local instructionText = display.newText( "Tap Mario or the coin for some sound FX!", 510, 200, native.systemFont, 55 )
+	instructionText:setFillColor( 1, 0, 0 )
+
+	local backgroundMusic = audio.loadStream( "paper_mario_main_title.mp3")
+
+	audio.setVolume( 1.0 )  -- Set the master volume
+	audio.setVolume( 0.5, { channel=1 } ) -- Set the volume on channel 1 a bit lower.
+
+	-- Play the background music on channel 1, loop infinitely, and fade in over 5 seconds 
+	local backgroundMusicChannel = audio.play( backgroundMusic, { channel=1, loops=-1, fadein=5000 } )
+
 	jumpSoundId = audio.loadSound( "mario_jump.wav" )
 	getCoinSoundId = audio.loadSound( "get_coin.wav" )
 
 	local mario = display.newImageRect( "mario.png", 190, 250 )
 	mario.x = 350
-	mario.y = 350
+	mario.y = 450
 	mario:addEventListener( "tap", marioTapListener )
 
 	local coin = display.newImageRect( "star_coin.png", 150, 146 )
 	coin.x = 700
-	coin.y = 350
+	coin.y = 450
 	coin:addEventListener( "tap", starCoinTapListener )
 
+	sceneGroup:insert( instructionText )
+	sceneGroup:insert( coin )
 	sceneGroup:insert( mario )
 
 end
