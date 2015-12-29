@@ -1,6 +1,4 @@
 
---[[
-
 print( string.len( "" ) )
 print( string.len( "Lua" ) )
 
@@ -13,11 +11,7 @@ print( string.rep( "Lua\n", 3 ) )
 print( string.reverse( "Lua" ) )
 print( string.reverse( "!elbadaer won si gnirts sihT" ) )
 
---]]
-
 --==============================================================================
-
---[[
 
 -- string.find() gives us the starting and ending character positions of a known
 -- sub-string - if it exists.
@@ -49,11 +43,7 @@ print( "Incorrect search for a period '.' = ", startIndex, endIndex )
 startIndex, endIndex = string.find("some_file.txt", ".", 1, true)
 print( "Successful search for a period '.' = ", startIndex, endIndex )
 
---]]
-
 --==============================================================================
-
---[[
 
 -- string.sub() extracts sub-strings based on position and returns them.
 
@@ -76,11 +66,7 @@ print( "(-8, 9) = " .. subString )
 subString = string.sub( myString, -8, -6 ) -- Sub-string to pull starts at 8 back from the end and goes to 6 back from the end.
 print( "(-8, -6) = " .. subString )
 
---]]
-
 --==============================================================================
-
---[[
 
 -- string.gsub() can replace all instances of the pattern provided with
 -- the replacement.
@@ -95,11 +81,7 @@ initialString = "banana"
 modifiedString = string.gsub( initialString, "a", "A", 2 )
 print( modifiedString )
 
---]]
-
 --==============================================================================
-
---[[
 
 -- If a capture is used (i.e. '()' ) in the sub-string we're searching for, 
 -- this can be referenced in the replacement string using the notation 
@@ -120,31 +102,27 @@ print( subString )
 subString = string.gsub( "banana", "(a)(n)", "<%2%1>" )
 print( subString )
 
---]]
-
 --==============================================================================
-
---[[
 
 -- String formatting can be very useful in debugging Lua values.
 
-local myString = string.format( "Test 1 = %s %q", "Hello", "Lua user!" )    -- String and quoted string
+local myString = string.format( "Test 1 = %s %q", "Hello", "Lua user!" ) -- String and quoted string
 print( myString )
 
-myString = string.format( "Test 2 = %c%c%c", 76, 117, 97 )          -- Char
+myString = string.format( "Test 2 = %c%c%c", 76, 117, 97 ) -- Char
 print( myString )
 
-myString = string.format( "Test 3 = %e, %E", math.pi, math.pi )       -- Exponent(lowercase E), exponent(uppercase E)
+myString = string.format( "Test 3 = %e, %E", math.pi, math.pi ) -- Exponent(lowercase E), exponent(uppercase E)
 print( myString )
 
-myString = string.format( "Test 4 = %f, %g", math.pi, math.pi )       -- Float and compact float
+myString = string.format( "Test 4 = %f, %g", math.pi, math.pi ) -- Float and compact float
 print( myString )
 
-myString = string.format( "Test 5 = %d, %i, %u", -100, -100, 100 )    -- Signed integer, signed integer, unsigned integer
+myString = string.format( "Test 5 = %d, %i, %u", -100, -100, 100 ) -- Signed integer, signed integer, unsigned integer
 print( myString )
 
--- The Answer to the Ultimate Question of Life, The Universe, and Everything - converted by Lua.
-myString = string.format( "Test 6 = %o, %x, %X", 42, 42, 42 )         -- Octal, Hex(lowercase), Hex(uppercase)
+-- The Answer to the Ultimate Question of Life, The Universe, and Everything - 
+-- converted by Lua.
+myString = string.format( "Test 6 = %o, %x, %X", 42, 42, 42 ) -- Octal, Hex(lowercase), Hex(uppercase)
 print( myString )
 
---]]
