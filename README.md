@@ -122,6 +122,15 @@ Use Package Control to install **SidebarEnhancements**
 5. Restart Sublime
 6.  [More info...](https://github.com/titoBouzout/SideBarEnhancements)
 
+Use Package Control to install **BracketHighlighter**
+
+1. Go to menu 'Preferences > Package Control'
+2. In the edit box type "Install Package" to find and select it.
+3. In the edit box type "BracketHighlighter" to find and select it.
+4. Installation progress will be displayed in the lower left corner of Sublime.
+5. Restart Sublime
+6.  [More info...](https://github.com/facelessuser/BracketHighlighter)
+
 ##Install the Corona SDK
 
 Download the Corona SDK from [here](https://coronalabs.com/)

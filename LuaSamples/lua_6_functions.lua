@@ -88,8 +88,8 @@ print( "The average of the list is " .. theAverage .. ".\n" )
 
 --==============================================================================
 
--- This function is almost identical to the one above, but it returns the 
--- average value and the total number of values contained in a table.
+-- This function is almost identical to the one above, but it returns two 
+-- values: the average value and the total number of values that were averaged.
 function averageAndCount( numberList )
 
 	local numCount = 0
@@ -114,4 +114,25 @@ local theAverage, numberCount = averageAndCount( myNumbers )
 
 print( "The average of the list is " .. theAverage .. "." )
 print( "The list contained " .. numberCount .. " numbers." )
+
+
+
+--==============================================================================
+
+-- We can also create and store functions inside tables. 
+
+function printSomeMessage( theMessage )
+
+    print( theMessage )
+
+end
+
+local tableWithFunc =
+{
+    aNumber = 55,
+    aString = "test",
+    aFunc = printSomeMessage
+}
+
+tableWithFunc.aFunc( "You can store and call a function from a table!" )
 

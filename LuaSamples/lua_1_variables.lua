@@ -1,15 +1,33 @@
+--==============================================================================
 
--- Having a program or script print out "Hello World" is a programming tradition.
--- On the line below, print is a function that Lua gives us for free. We can use
--- it to print some text to the console. We'll talk more about functions later on, 
--- so don't worry.
+-- PLEASE NOTE:
+
+-- If you followed all the instructions in the README.md file on setting up Lua
+-- and the Sublime Text Editor you should be able to open this Lua script file 
+-- with Sublime and hit the F7 function key to run it. Keep in mind, that on 
+-- a Macbook you may have to hold down the "fn" key while hitting the F7 key 
+-- to make it work.
+
+-- Also, the README.md file uses a special Mark-down language to format the text
+-- so you may find it hard to read. The formatted version which is easier to 
+-- read can be found on Github here:
+-- https://github.com/GuildSA/CoronaHackPack
+
+--==============================================================================
+
+-- Having a program or script print out "Hello World" is a programming 
+-- tradition. On the line below, print is a function that Lua gives us 
+-- for free. We can use it to print some text to the console. We'll 
+-- talk more about functions later on, so don't worry.
 
 print( "Hello World!" )
 
--- By the way, when a line of text starts with two hyphens '--', it's a comment.
--- Comments are just notes added by a programmer to explain what the code is doing.
+-- By the way, when a line of text starts with two hyphens '--', it's a 
+-- comment. Comments are just notes added by a programmer to explain what 
+-- the code is doing.
 
--- If you want to have multiple lines of comments, you can bracket the lines with '--[[ ]]--'
+-- If you want to have multiple lines of comments, you can bracket 
+-- the lines with '--[[ ]]--'
 
 --[[
 	This is a multi-line comment for those who like to write a lot!
@@ -90,7 +108,7 @@ local var   = 0 -- Fine.
 local var1  = 0 -- Fine.
 local var_1 = 0 -- Fine.
 local _var  = 0 -- Fine.
--- local 1var  = 0 -- Syntax Error!
+-- local 1var  = 0 -- Syntax Error! You can not start a variable with a digit.
 
 -- Also, you can't name your variables after any of Lua's reserved keywords:
 --
@@ -168,79 +186,6 @@ print( sum )
 
 local widthAsNumber = tonumber( "1024" )
 local widthAsString = tostring( 1024 )
-
---==============================================================================
-
--- Using Escape Sequences
-
---[[
-
--- Use '\n' to break text onto the next line.
-print( "Line 1.\nLine 2.\nLine 3.")
-
--- Use '\t' to insert tabs.
-print( "Column 1\tColumn 2\tColumn 3")
-
--- Use '\"' to insert double quotes inside a double quoted string.
-print( "He said, \"Hello. My name is Inigo Montoya. You killed my father. Prepare to die.\"" )
-
--- Use '\'' to insert single quotes inside a single quoted string.
-print( 'He said, \'Hello. My name is Inigo Montoya. You killed my father. Prepare to die.\'' )
-
---]]
-
--- String Escape Sequences:
---
--- \a	bell
--- \v	vertical tab
--- \f	form feed
--- \n	newline
--- \r	return
--- \t	horizontal tab
--- \b	backspace
--- \\	backslash
--- \"	double quote
--- \'	single quote
--- \[	bracket
--- \]	bracket
-
---==============================================================================
-
--- Boolean Operators
---
---     and - Returns true if both expressions are true
---     or  - Returns true if either of the two expressions are true
---     not - Negates the expression.
-
---[[
-
-local var1 = 10
-print( var1 == 10 and var1 < 5 )               -- (Prints false)
-print( var1 == 20 or var1 > 5 )                -- (Prints true)
-print( not var1 == 10 )                        -- (Prints false)
-
-print( var1 == 10 and tostring(var1) == "10" ) -- (Prints true)
-
---]]
-
---==============================================================================
-
---[[
-
-local x = 5
-local y = 5 + 5
-print( x, y )
-
-x, y = 20, 50 -- Initial assignment.
-print( x, y )
-
-x, y = y, x   -- Assignment that swaps values around.
-print( x, y )
-
-local a, a = 1, 2 -- Nonsensical, but if you're wondering the last assignment wins.
-print( a )
-
---]]
 
 --==============================================================================
 
