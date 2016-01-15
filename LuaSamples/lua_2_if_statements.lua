@@ -10,7 +10,7 @@ end
 
 --==============================================================================
 
--- Nest, the if-else statement allows us to pick one of two possible actions instead
+-- Next, the if-else statement allows us to pick one of two possible actions instead
 -- of a all-or-nothing choice.
 
 local health = 75
