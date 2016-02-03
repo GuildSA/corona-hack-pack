@@ -3,6 +3,10 @@ The CoronaHackPack is a collection of instructions, tutorials and code samples d
 
 This educational resource is being developed by The Guild of Software Architects for the [hack|ed hackathon](http://hack-ed.ntec-inc.org/) in February 26, 2016. This hackathon was conceived and organized by [The North Texas Enterprise Center (NTEC)](http://www.ntec-inc.org/), [Parish Episcopal School](http://www.parishepiscopal.org/), [iLLUMINATE STEM](http://www.illuminatestem.org/) and the [Guild of Software Architects](https://guildsa.org/).
 
+```
+NOTE: If you're reading these instructions directly from the README.md file in the CoronaHackPack root folder you may find it hard to read due to the usage of GitHub's Markdown language. You should read it from the [project's GitHub page](https://github.com/GuildSA/CoronaHackPack) where it is formatted for reading.
+```
+
 ##Install Lua
 
 While the Corona SDK will install it's own private version of Lua, it's good to go ahead install Lua in the typical way so we can run and test Lua scripts at a command prompt or terminal.
@@ -162,6 +166,8 @@ Use Package Control to install **BracketHighlighter**
 
 ##Install the Corona SDK
 
-Go to  the Corona SDK website, sign up for a free account, and download the Corona SDK from [here](https://coronalabs.com/)
+Go to  the [Corona SDK website](https://coronalabs.com/), sign up for a free account, and download the Corona SDK from [here](http://developer.coronalabs.com/user/login?destination=downloads/coronasdk)
+
+
 
 
