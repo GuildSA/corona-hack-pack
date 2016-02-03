@@ -3,6 +3,8 @@ The CoronaHackPack is a collection of instructions, tutorials and code samples d
 
 This educational resource is being developed by The Guild of Software Architects for the [hack|ed hackathon](http://hack-ed.ntec-inc.org/) in February 26, 2016. This hackathon was conceived and organized by [The North Texas Enterprise Center (NTEC)](http://www.ntec-inc.org/), [Parish Episcopal School](http://www.parishepiscopal.org/), [iLLUMINATE STEM](http://www.illuminatestem.org/) and the [Guild of Software Architects](https://guildsa.org/).
 
+If you're not familiar with GitHub, which is the website where this code is being hosted online, simply click on the "Download ZIP" button to get all the source code and learning materials. It can be found on the far right-hand side of this page.
+
 ```
 NOTE: If you're reading these instructions directly from the README.md file in the CoronaHackPack root 
 folder you may find it hard to read due to the usage of GitHub's Markdown language. You should read it 
