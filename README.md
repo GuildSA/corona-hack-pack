@@ -29,16 +29,32 @@ You can also open a command prompt at a particular folder by pressing and holdin
 
 First off, go ahead and open up a terminal on your Mac by going to your Applications folder, and then opening the Utilities folder. Once there, open the Terminal application.
 
-Now, type brew and press enter to see if you have Homebrew installed.
+Now, type "brew" and press enter to see if you have Homebrew installed. Homebrew is a package manager for OS X that can help us install other software tools and libraries for us.
 
 ```
-brew
+$ brew
 ```
 
-If you don't have Homebrew installed, install Homebrew by copying and pasting this into a terminal:
+If brew is installed you should see something like this:
 
 ```
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+$ brew
+Example usage:
+  brew [info | home | options ] [FORMULA...]
+  brew install FORMULA...
+  brew uninstall FORMULA...
+  brew search [foo]
+  brew list [FORMULA...]
+  brew update
+  brew upgrade [FORMULA...]
+  brew pin/unpin [FORMULA...]
+  ...
+ ```
+
+If you don't have Homebrew installed, install Homebrew by copying and pasting this into the terminal:
+
+```
+$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 Instructions for this were found [here](http://brew.sh/).
@@ -46,10 +62,23 @@ Instructions for this were found [here](http://brew.sh/).
 Then, use Homebrew to install Lua in the terminal by typing:
 
 ```
-brew install lua
+$ brew install lua
 ```
 
 Once installed you should be able to run the "lua" command from the console.
+
+```
+$ lua
+```
+
+If successful, you should see something like this in the terminal:
+
+```
+Lua 5.2.4  Copyright (C) 1994-2015 Lua.org, PUC-Rio
+> 
+```
+
+This is the command prompt for the Lua interpreter, which will allow you to write and run Lua code in the terminal window. Hold down the "control" key and press the "C" key to exit the Lua interpreter and return to the terminal prompt.
 
 ##Install and setup the Sublime Text editor
 
@@ -133,4 +162,6 @@ Use Package Control to install **BracketHighlighter**
 
 ##Install the Corona SDK
 
-Download the Corona SDK from [here](https://coronalabs.com/)
+Go to  the Corona SDK website, sign up for a free account, and download the Corona SDK from [here](https://coronalabs.com/)
+
+
