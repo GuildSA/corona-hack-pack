@@ -6,7 +6,9 @@ This educational resource is being developed by The Guild of Software Architects
 ```
 NOTE: If you're reading these instructions directly from the README.md file in the CoronaHackPack root 
 folder you may find it hard to read due to the usage of GitHub's Markdown language. You should read it 
-from the [project's GitHub page](https://github.com/GuildSA/CoronaHackPack) where it is formatted for reading.
+from the project's GitHub page where it is formatted for reading.
+
+https://github.com/GuildSA/CoronaHackPack) 
 ```
 
 ##Install Lua
