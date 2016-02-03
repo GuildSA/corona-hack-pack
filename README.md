@@ -98,17 +98,19 @@ With that said, the following instructions are only for setting up the Sublime T
 
 [Download and install Sublime Text 3](http://www.sublimetext.com/3)
 
-Install **Package Control** for **Sublime Text 3** so we can install several other packages.
+Install the package manager **Package Control** for **Sublime Text 3** so we can install some other useful features for Sublime.
 
 1. [Go here...](https://packagecontrol.io/installation)
-2. Copy the Python script from the tab for "SUBLIME TEXT 3"
-3. Paste the code into the console of Sublime and hit enter.
-4. Installation progress will be displayed in the lower left corner of Sublime.
-5. Restart Sublime
+2. Copy the Python script from the tab for "SUBLIME TEXT 3".
+3. Launch Sublime
+4. Go to the menu 'View > Show Console' to open Sublime's console.
+5. Paste the code into the console of Sublime and hit enter.
+6. Installation progress will be displayed in the lower left corner of Sublime.
+7. Restart Sublime
 
 Use Package Control to install **Fix Mac Path** (**_This is only required if you're on a Mac._**)
 
-1. Go to menu 'Preferences > Package Control'
+1. Go to the menu 'Preferences > Package Control'
 2. In the edit box type "Install Package" to find and select it.
 3. In the edit box type "Fix Mac Path"" to find and select it.
 4. Installation progress will be displayed in the lower left corner of Sublime.
@@ -116,7 +118,7 @@ Use Package Control to install **Fix Mac Path** (**_This is only required if you
 
 Use Package Control to install **Lua Dev**
 
-1. Go to menu 'Preferences > Package Control'
+1. Go to the menu 'Preferences > Package Control'
 2. In the edit box type "Install Package" to find and select it.
 3. In the edit box type "Lua Dev" to find and select it.
 4. Installation progress will be displayed in the lower left corner of Sublime.
@@ -146,7 +148,7 @@ myBoolean type is number
 
 Use Package Control to install **Corona Editor**
 
-1. Go to menu 'Preferences > Package Control'
+1. Go to the menu 'Preferences > Package Control'
 2. In the edit box type "Install Package" to find and select it.
 3. In the edit box type "Corona Editor" to find and select it.
 4. Installation progress will be displayed in the lower left corner of Sublime.
@@ -158,7 +160,7 @@ The following are optional packages for Sublime but are very useful for Lua deve
 
 Use Package Control to install **SublimeLinter**
 
-1. Go to menu 'Preferences > Package Control'
+1. Go to the menu 'Preferences > Package Control'
 2. In the edit box type "Install Package" to find and select it.
 3. In the edit box type "SublimeLinter" to find and select it.
 4. Installation progress will be displayed in the lower left corner of Sublime.
@@ -167,7 +169,7 @@ Use Package Control to install **SublimeLinter**
 
 Use Package Control to install **SublimeLinter-Lua**
 
-1. Go to menu 'Preferences > Package Control'
+1. Go to the menu 'Preferences > Package Control'
 2. In the edit box type "Install Package" to find and select it.
 3. In the edit box type "SublimeLinter-Lua" to find and select it.
 4. Installation progress will be displayed in the lower left corner of Sublime.
@@ -176,7 +178,7 @@ Use Package Control to install **SublimeLinter-Lua**
 
 Use Package Control to install **SidebarEnhancements**
 
-1. Go to menu 'Preferences > Package Control'
+1. Go to the menu 'Preferences > Package Control'
 2. In the edit box type "Install Package" to find and select it.
 3. In the edit box type "SidebarEnhancements" to find and select it.
 4. Installation progress will be displayed in the lower left corner of Sublime.
@@ -185,7 +187,7 @@ Use Package Control to install **SidebarEnhancements**
 
 Use Package Control to install **BracketHighlighter**
 
-1. Go to menu 'Preferences > Package Control'
+1. Go to the menu 'Preferences > Package Control'
 2. In the edit box type "Install Package" to find and select it.
 3. In the edit box type "BracketHighlighter" to find and select it.
 4. Installation progress will be displayed in the lower left corner of Sublime.
