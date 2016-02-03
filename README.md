@@ -8,12 +8,14 @@ NOTE: If you're reading these instructions directly from the README.md file in t
 folder you may find it hard to read due to the usage of GitHub's Markdown language. You should read it 
 from the project's GitHub page where it is formatted for reading.
 
-https://github.com/GuildSA/CoronaHackPack) 
+https://github.com/GuildSA/CoronaHackPack
 ```
 
 ##Install Lua
 
-While the Corona SDK will install it's own private version of Lua, it's good to go ahead install Lua in the typical way so we can run and test Lua scripts at a command prompt or terminal.
+The Corona SDK will install it's own private version of Lua so the following steps to manually install Lua are only necessary if you want to run and test Lua scripts at a command prompt or terminal. 
+
+In other words, if you have no interest in running stand-alone Lua scripts for learning purposes and plan on writing all of your Lua code completely from within a Corona SDK project you do not need to manually install Lua as done here; you can simply jump straight to the section on installing the Corona SDK.
 
 ###Setup for Windows
 
@@ -90,8 +92,9 @@ This is the command prompt for the Lua interpreter, which will allow you to writ
 
 ##Install and setup the Sublime Text editor
 
-While you can use any text editor you like to write Lua scripts, Sublime Text 3
-is the official editor used by Corona so we'll go with that.
+You can use any text editor you like for Lua or Corona SDK development, but Sublime Text 3 is the official editor used by Corona, so I highly recommend it if you simply have no preference of editor.
+
+With that said, the following instructions are only for setting up the Sublime Text 3 editor for Lua and Corona SDK development.
 
 [Download and install Sublime Text 3](http://www.sublimetext.com/3)
 
@@ -117,8 +120,29 @@ Use Package Control to install **Lua Dev**
 2. In the edit box type "Install Package" to find and select it.
 3. In the edit box type "Lua Dev" to find and select it.
 4. Installation progress will be displayed in the lower left corner of Sublime.
-5.Restart Sublime
-6. Open a Lua script and go to the menu 'Tools > Build' to run the script.
+5. Restart Sublime
+
+
+At this point, you can test If you were successful in setting up Sublime for running simple Lua scripts by launching it and opening one of the sample Lua scripts that comes with the CoronaHackPack:
+
+Start Sublime and open to the Lua script, "lua_1_variables.lua". It can be found at this path:
+
+```
+CoronaHackPack-master/LuaSamples/lua_1_variables.lua
+```
+
+Once the script has been opened in Sublime, go to the menu 'Tools > Build' to run the script. You can also hold down the "command" key and press the "B" key to execute it.
+
+If the script executes, a console pane should appear at the bottom of Sublime and fill with some text that looks something like this:
+
+```
+false
+myBoolean type is boolean
+0
+myBoolean type is number
+12
+[Finished in 0.1s]
+```
 
 Use Package Control to install **Corona Editor**
 
@@ -130,7 +154,7 @@ Use Package Control to install **Corona Editor**
 
 --------------------------------------------------------------------------------
 
-The following are optional but very useful.
+The following are optional packages for Sublime but are very useful for Lua development.
 
 Use Package Control to install **SublimeLinter**
 
