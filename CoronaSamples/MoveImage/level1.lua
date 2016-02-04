@@ -16,10 +16,10 @@ local scene = composer.newScene()
 local screenW = display.contentWidth
 local screenH = display.contentHeight
 
--- This will eventually hold our Mario image that we will animate and render.
+-- These will eventually hold our images that we will animate and render.
 local mario = nil
-
 local star = nil
+local lakitu = nil
 
 -- This is used by the getDeltaTime() utility function to keep track of how much time
 -- has elapsed since the last frame of rendering.
@@ -131,6 +131,31 @@ moveStarRight = function( obj )
 
 end
 
+local movelakituLeft
+local movelakituRight
+
+moveLakituLeft = function( obj )
+
+	lakitu.xScale = 1
+
+	-- This transition will make lakitu move left and when it gets 
+	-- there, the transition will call the moveLakituRight function to 
+	-- move it back.
+	transition.to( lakitu, { time=2000, transition=easing.outExpo, x=80, onComplete=moveLakituRight } )
+
+end
+
+moveLakituRight = function( obj )
+
+	lakitu.xScale = -1
+
+	-- This transition will make lakitu move right and when it gets 
+	-- there, the transition will call the moveLakituLeft function to 
+	-- move it back.
+	transition.to( lakitu, { time=2000, transition=easing.outExpo, x=940, onComplete=moveLakituLeft } )
+
+end
+
 function scene:create( event )
 
 	-- Called when the scene's view does not exist.
@@ -165,13 +190,26 @@ function scene:create( event )
 	star.x = 100
 	star.y = 150
 
+
+	lakitu = display.newImageRect( "lakitu.png", 282, 350 )
+
+	-- Initialize Mario by setting his position.
+	-- Changes to his X position move Mario left and right.
+	-- Changes to his Y position move Mario up and down.
+	lakitu.x = 940
+	lakitu.y = 300
+
 	-- Make sure to add our Star and Mario image to the scene group 
 	-- so the scene can manage them.
 	sceneGroup:insert( star )
+	sceneGroup:insert( lakitu )
 	sceneGroup:insert( mario )
 
 	-- As soon as the scene is created, make the star move right.
 	moveStarRight()
+
+	-- As soon as the scene is created, make Lakitu move left.
+	moveLakituLeft()
 
 end
 
