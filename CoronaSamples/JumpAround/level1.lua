@@ -19,6 +19,8 @@ local screenH = display.contentHeight
 -- This will eventually hold our Mario image that we will animate and render.
 local mario = nil
 
+local star = nil
+
 -- This is used by the getDeltaTime() utility function to keep track of how much time
 -- has elapsed since the last frame of rendering.
 local prevTime = 0
@@ -108,6 +110,27 @@ local function onFrameEnter()
 
 end
 
+local moveStarLeft
+local moveStarRight
+
+moveStarLeft = function( obj )
+
+	-- This transition will make the star move left and when it gets 
+	-- there, the transition will call the moveStarRight function to 
+	-- move it back.
+	transition.to( star, { time=1200, x=100, onComplete=moveStarRight } )
+
+end
+
+moveStarRight = function( obj )
+
+	-- This transition will make the star move right and when it gets 
+	-- there, the transition will call the moveStarLeft function to 
+	-- move it back.
+	transition.to( star, { time=1200, x=950, onComplete=moveStarLeft } )
+
+end
+
 function scene:create( event )
 
 	-- Called when the scene's view does not exist.
@@ -133,8 +156,22 @@ function scene:create( event )
 	mario.velocityX = 0.5
     mario.velocityY = 0.8
 
-	-- Make sure to add our Mario image to the scene group so we can render it.
+
+	star = display.newImageRect( "star.png", 150, 143 )
+
+	-- Initialize Mario by setting his position.
+	-- Changes to his X position move Mario left and right.
+	-- Changes to his Y position move Mario up and down.
+	star.x = 100
+	star.y = 150
+
+	-- Make sure to add our Star and Mario image to the scene group 
+	-- so the scene can manage them.
+	sceneGroup:insert( star )
 	sceneGroup:insert( mario )
+
+	-- As soon as the scene is created, make the star move right.
+	moveStarRight()
 
 end
 
