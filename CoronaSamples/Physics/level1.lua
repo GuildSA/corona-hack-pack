@@ -8,9 +8,6 @@
 
 local physics = require( "physics" )
 
-physics.start()
-physics.setGravity( 0, 30 )
-
 -- Use the require function to include the Corona "composer" module so 
 -- we can create a new scene.
 local composer = require( "composer" )
@@ -22,6 +19,7 @@ local scene = composer.newScene()
 display.setDefault( "background", 0.2, 0.5, 1 )
 
 local mario = nil
+local block = nil
 local spacePressed = false
 local blockJumping = false
 
@@ -48,6 +46,9 @@ function scene:create( event )
 	-- 
 	-- INSERT code here to initialize the scene
 	-- e.g. add display objects to 'sceneGroup', add touch listeners, etc.
+
+    physics.start()
+    physics.setGravity( 0, 30 )
 
 	local sceneGroup = self.view
 
@@ -90,12 +91,23 @@ function scene:create( event )
     physics.addBody( platform, "static", { friction=0.3 } )
 
     --
+    -- Add a block to push...
+    --
+
+    block = display.newImageRect( "block.png", 90, 86 )
+    block.x = 500
+    block.y = -150
+
+    physics.addBody( block, { density=5.0, friction=0.5, bounce=0.5 } )
+    block.name = "block"
+
+    --
     -- Finally, add Mario...
     --
 
 	mario = display.newImageRect( "mario.png", 95, 125 )
 	mario.x = 500
-	mario.y = 200
+	mario.y = 100
 
     physics.addBody( mario, { density=5.0, friction=0.5, bounce=0.2 } )
     mario.isFixedRotation = true
@@ -121,10 +133,6 @@ local function onFrameEnter()
         return
     end
 
-    -- local deltaTime = getDeltaTime()
-
-    -- local moveSpeed = (0.5 * deltaTime)
-
     if mario.isMoving then
 
         if mario.direction == "left" then
@@ -144,12 +152,48 @@ local function onFrameEnter()
 
     if spacePressed == true and blockJumping == false then
 
+        -- Don't allow double-jumping in the air!
         blockJumping = true
+
+        -- Apply some force to make Mario jump up.
         mario:applyLinearImpulse( 0, -1500, mario.x, mario.y )
 
     end
 
     spacePressed = false
+
+    local offscreen = 200
+
+    if mario.x > screenW + offscreen then
+        mario.x = -offscreen
+    elseif mario.x < -offscreen then
+        mario.x = screenW + offscreen
+    end
+
+    -- If Mario falls off the ground - kill all his velocity and reset him.
+    if mario.y > 1000 then
+
+        mario:setLinearVelocity( 0, 0 )
+        mario.x = 500
+        mario.y = 0
+
+    end
+
+    if block.x > screenW + offscreen then
+        block.x = -offscreen
+    elseif block.x < -offscreen then
+        block.x = screenW + offscreen
+    end
+
+    -- If the block falls off the ground - kill its velocity and reset it.
+    if block.y > 1000 then
+
+        block:setLinearVelocity( 0, 0 )
+        block.rotation = 0
+        block.x = 500
+        block.y = 0
+
+    end
 
 end
 
@@ -181,8 +225,8 @@ local function onKeyEvent( event )
 
     elseif event.keyName == "space" then
 
-        if event.phase == "up" then
-            spacePressed = true
+        if event.phase == "down" then
+            spacePressed = true 
         end
 
         return true
