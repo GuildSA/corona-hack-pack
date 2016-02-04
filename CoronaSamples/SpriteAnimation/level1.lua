@@ -16,7 +16,7 @@ local scene = composer.newScene()
 local screenW = display.contentWidth
 local screenH = display.contentHeight
 
-local walkingSprite = nil
+local guySprite = nil
 
 -- Set the background color to a light blue color. 
 display.setDefault( "background", 0.2, 0.5, 1 )
@@ -44,10 +44,14 @@ function scene:create( event )
     local helpText = display.newText( options )
     helpText:setFillColor( 1, 0, 0 )
 
+   	--
+   	-- Gold coin...
+   	--
+
 	-- A sprite sheet with a gold coin.
 	local coinSpriteSheet = graphics.newImageSheet( "coin.png", { width=64, height=64, numFrames=64 } )
 
-	-- Play 64 frames every 1000 ms.
+	-- Play 64 frames over the time span of 1000 ms.
 	local coinSprite = display.newSprite( coinSpriteSheet, { name="coin", start=1, count=64, time=1000 } )
 	coinSprite.x = 200
 	coinSprite.y = 450
@@ -55,10 +59,14 @@ function scene:create( event )
 	coinSprite.yScale = 2.5
 	coinSprite:play()
 
+   	--
+   	-- Green burst or explosion...
+   	--
+
 	-- A sprite sheet with a green burst.
 	local greenBurstSpriteSheet = graphics.newImageSheet( "green_burst.png", { width=100, height=100, numFrames=11 } )
 
-	-- Play 11 frames every 1000 ms.
+	-- Play 11 frames over the time span of 1000 ms.
 	local greenBurstSprite = display.newSprite( greenBurstSpriteSheet, { name="greenBurst", start=1, count=11, time=1000 } )
 	greenBurstSprite.x = 500
 	greenBurstSprite.y = 450
@@ -66,30 +74,35 @@ function scene:create( event )
 	greenBurstSprite.yScale = 2
 	greenBurstSprite:play()
 
+   	--
+   	-- Some Guy?
+   	--
 
-	-- Tow sprite sheets with a man walking left and right.
+	-- 2 sprite sheets with a guy walking left and right.
 	local walkingRightSpriteSheet = 
 		graphics.newImageSheet( "walk_right.png", { width=102, height=148, numFrames=6 } )
 
 	local walkingLeftSpriteSheet = 
 		graphics.newImageSheet( "walk_left.png", { width=102, height=148, numFrames=6 } )
 
+	-- Create two animation sequences where the guy walks right and left.
+	-- They both play 6 frames over the time span of 800 ms.
 	local sequenceData = {
 		{ name="walkRight", sheet=walkingRightSpriteSheet, start=1, count=6, time=800, loopCount=0 },
 		{ name="walkLeft", sheet=walkingLeftSpriteSheet, start=1, count=6, time=800, loopCount=0 }
 	}
 	
-	walkingSprite = display.newSprite( walkingRightSpriteSheet, sequenceData )
-	walkingSprite.x = 800
-	walkingSprite.y = 450
-	walkingSprite.xScale = 2
-	walkingSprite.yScale = 2
-	walkingSprite:play()
+	guySprite = display.newSprite( walkingRightSpriteSheet, sequenceData )
+	guySprite.x = 800
+	guySprite.y = 450
+	guySprite.xScale = 2
+	guySprite.yScale = 2
+	guySprite:play()
 
 	-- Make sure to add our Mario image to the scene group so we can render it.
 	sceneGroup:insert( coinSprite )
 	sceneGroup:insert( greenBurstSprite )
-	sceneGroup:insert( walkingSprite )
+	sceneGroup:insert( guySprite )
 	sceneGroup:insert( helpText )
 
 end
@@ -98,15 +111,15 @@ local function onKeyEvent( event )
 
    if event.keyName == "left" then
 
-		walkingSprite:setSequence( "walkLeft" )
-		walkingSprite:play()
+		guySprite:setSequence( "walkLeft" )
+		guySprite:play()
 
         return true
 
     elseif event.keyName == "right" then
 
-		walkingSprite:setSequence( "walkRight" )
-		walkingSprite:play()
+		guySprite:setSequence( "walkRight" )
+		guySprite:play()
 
         return true
     end
@@ -114,7 +127,6 @@ local function onKeyEvent( event )
     -- IMPORTANT! Return false to indicate that this app is NOT overriding 
     -- the received key. This lets the operating system execute its default
     -- handling of the key.
-
     return false
 
 end
@@ -134,11 +146,6 @@ function scene:show( event )
 		-- 
 		-- INSERT code here to make the scene come alive
 		-- e.g. start timers, begin animation, play audio, etc.
-
-		-- Before we start listening to the "enterFrame" event, we should
-		-- initialize prevTime to the current time. Otherwise the first call
-		-- to getDeltaTime() could return an absurd value.
-		prevTime = system.getTimer()
 
 		-- If the scene has been shown - add our listeners.
 		Runtime:addEventListener( "key", onKeyEvent )
