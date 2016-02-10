@@ -114,7 +114,7 @@ Use Package Control to install **Fix Mac Path** (**_This is only required if you
 
 1. Go to the menu 'Preferences > Package Control'
 2. In the edit box type "Install Package" to find and select it.
-3. In the edit box type "Fix Mac Path"" to find and select it.
+3. In the edit box type "Fix Mac Path" to find and select it.
 4. Installation progress will be displayed in the lower left corner of Sublime.
 5. Restart Sublime
 
@@ -125,28 +125,6 @@ Use Package Control to install **Lua Dev**
 3. In the edit box type "Lua Dev" to find and select it.
 4. Installation progress will be displayed in the lower left corner of Sublime.
 5. Restart Sublime
-
-
-At this point, you can test If you were successful in setting up Sublime for running simple Lua scripts by launching it and opening one of the sample Lua scripts that comes with the CoronaHackPack:
-
-Start Sublime and open to the Lua script, "lua_1_variables.lua". It can be found at this path:
-
-```
-CoronaHackPack-master/LuaSamples/lua_1_variables.lua
-```
-
-Once the script has been opened in Sublime, go to the menu 'Tools > Build' to run the script. You can also hold down the "command" key and press the "B" key to execute it.
-
-If the script executes, a console pane should appear at the bottom of Sublime and fill with some text that looks something like this:
-
-```
-false
-myBoolean type is boolean
-0
-myBoolean type is number
-12
-[Finished in 0.1s]
-```
 
 Use Package Control to install **Corona Editor**
 
