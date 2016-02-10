@@ -14,10 +14,15 @@ local composer = require( "composer" )
 -- Use composer to create a new scene. 
 local scene = composer.newScene()
 
-local button1Handler = function( event )
+
+function onEventListener( event )
+
 	print( "Going to scene 1!" )
+
 	composer.gotoScene( "scene1", "slideRight", 800  )
+
 end
+
 
 function scene:create( event )
 
@@ -33,24 +38,22 @@ function scene:create( event )
 	local helpText = display.newText( "Scene #2", 380, 150, native.systemFont, 55 )
 	helpText:setFillColor( 0, 1, 0 )
 
-	local scene1Button = widget.newButton {
+	local button = widget.newButton {
 
 		width = 380,
 		height = 100,
-		id = "btn1",
 		defaultFile = "button_gray.png",
 		overFile = "button_gray_over.png",
 		label = "Go To Scene 1",
 		labelColor = { default = { 51, 51, 51, 255 }, },
-		font = native.systemFont,
 		fontSize = 50,
-		onEvent = button1Handler,
+		onEvent = onEventListener,
 	}
 
-	scene1Button.x = 380
-	scene1Button.y = 400
+	button.x = 380
+	button.y = 400
 
-	sceneGroup:insert( scene1Button )
+	sceneGroup:insert( button )
 	sceneGroup:insert( helpText )
 
 end

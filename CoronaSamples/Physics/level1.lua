@@ -8,6 +8,10 @@
 
 local physics = require( "physics" )
 
+physics.setDrawMode( "normal" )  -- The default Corona renderer, with no collision outlines.
+--physics.setDrawMode( "hybrid" )  -- Overlays collision outlines on normal display objects.
+--physics.setDrawMode( "debug" )   -- Shows collision engine outlines only.
+
 -- Use the require function to include the Corona "composer" module so 
 -- we can create a new scene.
 local composer = require( "composer" )
@@ -21,7 +25,6 @@ display.setDefault( "background", 0.2, 0.5, 1 )
 local mario = nil
 local block = nil
 local spacePressed = false
-local blockJumping = false
 
 -- forward declarations and other locals
 local screenW = display.contentWidth
@@ -32,10 +35,6 @@ local halfH = display.contentWidth*0.5
 function onCollision( event )
 
     print("onCollision: ", event.object1.name, event.object2.name)
-
-    if event.object1.name == "Mario" or event.object2.name == "Mario" then            
-        blockJumping = false
-    end
 
 end
 
@@ -57,7 +56,7 @@ function scene:create( event )
         text = "Use left and right arrow keys to move and space bar to jump!",
         x = 500,
         y = 150,
-        width = 800,     -- Required for multi-line and alignment
+        width = 800,
         font = native.systemFont,   
         fontSize = 55,
         align = "center"
@@ -150,10 +149,7 @@ local function onFrameEnter()
 
     end
 
-    if spacePressed == true and blockJumping == false then
-
-        -- Don't allow double-jumping in the air!
-        blockJumping = true
+    if spacePressed == true   then
 
         -- Apply some force to make Mario jump up.
         mario:applyLinearImpulse( 0, -1500, mario.x, mario.y )

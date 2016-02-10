@@ -15,19 +15,12 @@ local composer = require( "composer" )
 local scene = composer.newScene()
 
 
-local button2Handler = function( event )
+function onEventListener( event )
+
 	print( "Going to scene 2!" )
+
 	composer.gotoScene( "scene2", "slideLeft", 800  )
-end
 
-local button3Handler = function( event )
-	print( "Going to scene 3!" )
-	composer.gotoScene( "scene3", "slideUp", 800  )
-end
-
-local button4Handler = function( event )
-	print( "Going to scene 4!" )
-	composer.gotoScene( "scene4", "flip", 400  )
 end
 
 
@@ -45,60 +38,22 @@ function scene:create( event )
 	local helpText = display.newText( "Scene #1", 380, 150, native.systemFont, 55 )
 	helpText:setFillColor( 1, 0, 0 )
 
-	local scene2Button = widget.newButton {
+	local button = widget.newButton {
 
 		width = 380,
 		height = 100,
-		id = "btn2",
 		defaultFile = "button_gray.png",
 		overFile = "button_gray_over.png",
 		label = "Go To Scene 2",
 		labelColor = { default = { 51, 51, 51, 255 }, },
-		font = native.systemFont,
 		fontSize = 50,
-		onEvent = button2Handler,
+		onEvent = onEventListener,
 	}
 
-	scene2Button.x = 380
-	scene2Button.y = 400
+	button.x = 380
+	button.y = 400
 
-	local scene3Button = widget.newButton {
-
-		width = 380,
-		height = 100,
-		id = "btn3",
-		defaultFile = "button_gray.png",
-		overFile = "button_gray_over.png",
-		label = "Go To Scene 3",
-		labelColor = { default = { 51, 51, 51, 255 }, },
-		font = native.systemFont,
-		fontSize = 50,
-		onEvent = button3Handler,
-	}
-
-	scene3Button.x = 380
-	scene3Button.y = 525
-
-	local scene4Button = widget.newButton {
-
-		width = 380,
-		height = 100,
-		id = "btn4",
-		defaultFile = "button_gray.png",
-		overFile = "button_gray_over.png",
-		label = "Go To Scene 4",
-		labelColor = { default = { 51, 51, 51, 255 }, },
-		font = native.systemFont,
-		fontSize = 50,
-		onEvent = button4Handler,
-	}
-
-	scene4Button.x = 380
-	scene4Button.y = 650
-
-	sceneGroup:insert( scene2Button )
-	sceneGroup:insert( scene3Button )
-	sceneGroup:insert( scene4Button )
+	sceneGroup:insert( button )
 	sceneGroup:insert( helpText )
 
 end

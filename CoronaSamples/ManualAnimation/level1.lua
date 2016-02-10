@@ -16,10 +16,8 @@ local scene = composer.newScene()
 local screenW = display.contentWidth
 local screenH = display.contentHeight
 
--- These will eventually hold our images that we will animate and render.
+-- These will eventually hold our Mario image that we will animate and render.
 local mario = nil
-local star = nil
-local lakitu = nil
 
 -- This is used by the getDeltaTime() utility function to keep track of how much time
 -- has elapsed since the last frame of rendering.
@@ -27,6 +25,37 @@ local prevTime = 0
 
 -- Set the background color to a light blue color. 
 display.setDefault( "background", 0.2, 0.5, 1 )
+
+function scene:create( event )
+
+	-- Called when the scene's view does not exist.
+	-- 
+	-- INSERT code here to initialize the scene
+	-- e.g. add display objects to 'sceneGroup', add touch listeners, etc.
+
+	local sceneGroup = self.view
+
+	mario = display.newImageRect( "mario.png", 190, 250 )
+
+	-- Initialize Mario by setting his position.
+	-- Changes to his X position move Mario left and right.
+	-- Changes to his Y position move Mario up and down.
+	mario.x = 500
+	mario.y = 300
+
+	-- Since we want to move Mario around the scene, we'll add two new property
+	-- variables to our mario object so we can keep track on his velocity along
+	-- both the X and Y axis of movement. Also, we want him start moving as soon
+	-- as the game loads so we will give him some initial velocity values to get
+	-- him bouncing.
+	mario.velocityX = 0.5
+    mario.velocityY = 0.8
+
+	-- Make sure to add our Mario image to the scene group so the scene 
+	-- can manage him.
+	sceneGroup:insert( mario )
+
+end
 
 --------------------------------------------------------------------------------
 -- A call to the getDeltaTime() utility function returns how much time has 
@@ -107,109 +136,6 @@ local function onFrameEnter()
     	mario.y = mario.y + (mario.velocityY * deltaTime)
 
 	end
-
-end
-
-local moveStarLeft
-local moveStarRight
-
-moveStarLeft = function( obj )
-
-	-- This transition will make the star move left and when it gets 
-	-- there, the transition will call the moveStarRight function to 
-	-- move it back.
-	transition.to( star, { time=1200, x=100, onComplete=moveStarRight } )
-
-end
-
-moveStarRight = function( obj )
-
-	-- This transition will make the star move right and when it gets 
-	-- there, the transition will call the moveStarLeft function to 
-	-- move it back.
-	transition.to( star, { time=1200, x=950, onComplete=moveStarLeft } )
-
-end
-
-local movelakituLeft
-local movelakituRight
-
-moveLakituLeft = function( obj )
-
-	lakitu.xScale = 1
-
-	-- This transition will make lakitu move left and when it gets 
-	-- there, the transition will call the moveLakituRight function to 
-	-- move it back.
-	transition.to( lakitu, { time=2000, transition=easing.outExpo, x=80, onComplete=moveLakituRight } )
-
-end
-
-moveLakituRight = function( obj )
-
-	lakitu.xScale = -1
-
-	-- This transition will make lakitu move right and when it gets 
-	-- there, the transition will call the moveLakituLeft function to 
-	-- move it back.
-	transition.to( lakitu, { time=2000, transition=easing.outExpo, x=940, onComplete=moveLakituLeft } )
-
-end
-
-function scene:create( event )
-
-	-- Called when the scene's view does not exist.
-	-- 
-	-- INSERT code here to initialize the scene
-	-- e.g. add display objects to 'sceneGroup', add touch listeners, etc.
-
-	local sceneGroup = self.view
-
-	mario = display.newImageRect( "mario.png", 190, 250 )
-
-	-- Initialize Mario by setting his position.
-	-- Changes to his X position move Mario left and right.
-	-- Changes to his Y position move Mario up and down.
-	mario.x = 500
-	mario.y = 300
-
-	-- Since we want to move Mario around the scene, we'll add two new property
-	-- variables to our mario object so we can keep track on his velocity along
-	-- both the X and Y axis of movement. Also, we want him start moving as soon
-	-- as the game loads so we will give him some initial velocity values to get
-	-- him bouncing.
-	mario.velocityX = 0.5
-    mario.velocityY = 0.8
-
-
-	star = display.newImageRect( "star.png", 150, 143 )
-
-	-- Initialize Mario by setting his position.
-	-- Changes to his X position move Mario left and right.
-	-- Changes to his Y position move Mario up and down.
-	star.x = 100
-	star.y = 150
-
-
-	lakitu = display.newImageRect( "lakitu.png", 282, 350 )
-
-	-- Initialize Mario by setting his position.
-	-- Changes to his X position move Mario left and right.
-	-- Changes to his Y position move Mario up and down.
-	lakitu.x = 940
-	lakitu.y = 300
-
-	-- Make sure to add our Star and Mario image to the scene group 
-	-- so the scene can manage them.
-	sceneGroup:insert( star )
-	sceneGroup:insert( lakitu )
-	sceneGroup:insert( mario )
-
-	-- As soon as the scene is created, make the star move right.
-	moveStarRight()
-
-	-- As soon as the scene is created, make Lakitu move left.
-	moveLakituLeft()
 
 end
 

@@ -45,8 +45,8 @@ function scene:create( event )
 
 	local sceneGroup = self.view
 
-	local instructionText = display.newText( "Tap Mario or the coin for some sound FX!", 510, 200, native.systemFont, 55 )
-	instructionText:setFillColor( 1, 0, 0 )
+	local helpText = display.newText( "Tap Mario or the coin for some sound FX!", 510, 200, native.systemFont, 55 )
+	helpText:setFillColor( 1, 0, 0 )
 
 	local backgroundMusic = audio.loadStream( "paper_mario_main_title.mp3")
 
@@ -69,7 +69,7 @@ function scene:create( event )
 	coin.y = 450
 	coin:addEventListener( "tap", starCoinTapListener )
 
-	sceneGroup:insert( instructionText )
+	sceneGroup:insert( helpText )
 	sceneGroup:insert( coin )
 	sceneGroup:insert( mario )
 
