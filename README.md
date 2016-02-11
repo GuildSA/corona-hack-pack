@@ -13,6 +13,13 @@ from the project's GitHub page where it is more human readable.
 https://github.com/GuildSA/CoronaHackPack
 ```
 
+All of the setup instructions below can be seen as Youtube videos on the [The Guild of Software Architects official Youtube channel](https://www.youtube.com/channel/UCNliD5b2EZk4aRqLF9D7Mvg)
+
+The video for setting up Lua & Corona on Mac OSX can be found [here](https://www.youtube.com/watch?v=hbr_gkvF9aU).
+
+The one for Windows will be coming soon!
+
+
 ##Install Lua
 
 The Corona SDK will install it's own private version of Lua so the following steps to manually install Lua are only necessary if you want to run and test Lua scripts at a command prompt or terminal. 
