@@ -30,9 +30,7 @@ In other words, if you have no interest in running stand-alone Lua scripts for l
 
 ###Setup for Windows
 
-The latest installer for Lua on Windows can be found at [this GitHub page](https://github.com/rjpcomputing/luaforwindows/releases).
-
-Once you go to the page, find and click on the link that says[LuaForWindows_v5.1.4-50.exe](https://github.com/rjpcomputing/luaforwindows/releases/download/v5.1.4-50/LuaForWindows_v5.1.4-50.exe) to download the installer.
+The latest installer for Lua on Windows can be found at [this GitHub page](https://github.com/rjpcomputing/luaforwindows/releases). Once there, find and click on the link that says [LuaForWindows_v5.1.4-50.exe](https://github.com/rjpcomputing/luaforwindows/releases/download/v5.1.4-50/LuaForWindows_v5.1.4-50.exe) to download the installer.
 
 Once installed you should be able to run the "lua" command from the Windows Command Prompt.
 
