@@ -79,8 +79,9 @@ local myString1 = "Hello."
 local myString2 = 'Hello.'
 
 local myString3 = [[
-	Hello. My name is Inigo Montoya.
-	You killed my father. Prepare to die.
+	Hello. This is a very long string that 
+	is declared using double square 
+	brackets during the assignment.
 ]]
 
 print( myString1 )
@@ -135,7 +136,7 @@ local myLocalVar = 20
 
 -- Besides numbers and strings we can also create variables of other types such
 -- as tables and Booleans. Tables are special variables that allow us to hold 
--- a bunch of values under one variable name. Some languages call these kind of 
+-- a bunch of values under one variable name. Some languages call this kind of 
 -- of variable an array. We'll talk more about tables later.
 
 local myNumber = 10
@@ -184,7 +185,8 @@ print( sum )
 -- local myString = "Kitty"
 -- local sum = myNumber + myString -- This will crash!!!!!!
 
--- You can also force coercion of types via these Lua functions
+-- You can also force the coercion of types by using the tonumber and tostring 
+-- functions.
 
 local widthAsNumber = tonumber( "1024" )
 local widthAsString = tostring( 1024 )
