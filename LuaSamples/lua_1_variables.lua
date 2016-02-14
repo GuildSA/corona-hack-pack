@@ -4,13 +4,15 @@
 
 -- If you followed all the instructions in the README.md file on setting up Lua
 -- and the Sublime Text Editor you should be able to open this Lua script file 
--- with Sublime and hit the F7 function key to run it. Keep in mind, that on 
--- a Macbook you may have to hold down the "fn" key while hitting the F7 key 
--- to make it work.
+-- with Sublime and execute it by going to the Tools menu and selecting Build.
+--
+-- Here are the short-cut keys by OS:
+-- Mac OSX: command + B
+-- WIndows: Ctrl + B
 
--- Also, the README.md file uses a special Mark-down language to format the text
--- so you may find it hard to read. The formatted version which is easier to 
--- read can be found on Github here:
+-- If you haven't set up your computer yet for executing Lua from the Sublime 
+-- Text Editor, a formatted version of the README.md, which is easier to read, 
+-- can be found here:
 -- https://github.com/GuildSA/CoronaHackPack
 
 --==============================================================================
@@ -20,7 +22,7 @@
 -- for free. We can use it to print some text to the console. We'll 
 -- talk more about functions later on, so don't worry.
 
-print( "Hello World!" )
+print( "Hello, World!" )
 
 -- By the way, when a line of text starts with two hyphens '--', it's a 
 -- comment. Comments are just notes added by a programmer to explain what 
@@ -179,7 +181,7 @@ print( sum )
 -- the Lua script will crash!
 
 -- local myNumber = 6
--- local myString = "Kittty"
+-- local myString = "Kitty"
 -- local sum = myNumber + myString -- This will crash!!!!!!
 
 -- You can also force coercion of types via these Lua functions
