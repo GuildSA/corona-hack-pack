@@ -19,8 +19,9 @@ The video for setting up Lua & Corona on Mac OSX can be found [here](https://www
 
 [![Setting up Lua and the Corona SDK for Mac OSX](http://img.youtube.com/vi/hbr_gkvF9aU/mqdefault.jpg)](https://youtu.be/hbr_gkvF9aU)
 
-The one for Windows will be coming soon!
+The video for setting up Lua & Corona on Windows can be found [here](https://www.youtube.com/watch?v=X88pGLkIlbg).
 
+[![Setting up Lua and the Corona SDK for Windows](http://img.youtube.com/vi/X88pGLkIlbg/mqdefault.jpg)](https://youtu.be/X88pGLkIlbg)
 
 ##Install Lua
 
