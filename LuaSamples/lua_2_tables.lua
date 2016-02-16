@@ -3,65 +3,97 @@
 -- In addition to numbers and strings, we can create variables that use more 
 -- complicated types such as tables.
 
--- There are three types of tables...
+-- There are three types of tables: index tables, dictionary tables, and 
+-- mixed tables.
 
 -- An index table contains only non-named or non-keyed values.
 
-local teamsRoster =
+local players =
 {
-    "Team Alpha",
-    "Team Bravo",
-    "Team Charlie",
-    "Team Delta",
-    "Team Echo"
+    "Jennifer J.",
+    "!Roberto!",
+    "Cyber Dawg",
+    "SpeedRacer"
 }
 
--- A dictionary table contains only named or keyed values.
+-- We call them index tables because we can access their values by specifying 
+-- the index of the data we want. We do this by passing the index into a set of
+-- square brackets "[]" to access the values stored in the table.
 
-local tournamentPlacing =
+print( players[1] )
+print( players[2] )
+
+print( players[0] ) -- Lua does not start counting at 0 - so this returns nil.
+print( players[5] ) -- Since we stored nothing at index 5 - this also returns nil.
+
+--==============================================================================
+
+-- The second type of table is called a dictionary table. A dictionary table 
+-- contains only named or keyed values.
+
+local gameResults =
 {
-    firstPlace = "Team Delta",
-    secondPlace = "Team Alpha",
-    thirdPlace = "Team Echo"
+    firstPlace = "Jennifer J.",
+    secondPlace = "!Roberto!",
+    thirdPlace = "SpeedRacer"
 }
 
--- A mixed table contains a mix of indexed and named values.
+-- We can access the data of a dictionary table by specifying the name of the
+-- key want to access right after a period. This usage of a period to access a
+-- key's value is called a dot operator.
+
+print( gameResults.firstPlace )
+
+-- We can also pass the key's name as a string value into square brackets.
+print( gameResults["secondPlace"] )
+
+-- But, be careful! You can not use a number to index into a dictionary table.
+print( gameResults[1] )
+
+--==============================================================================
+
+-- The third type of table is called a mixed table. The mixed table contains a 
+-- mix of indexed and named values.
 
 local mixedTable =
 {
     10,
-    "some string!",
-    numberVar = 10,
+    "A String at index 2!",
+    myNumber = 20,
 
-    subTbl1 = teamsRoster,
-    subTbl2 = tournamentPlacing,
-
-    subTbl3 =
+    mySubTable =
     {
-        var1 = 10,
-        var2 = 100,
-        var3 = "Another string"
-    }
+        300,
+        anotherNumber = 400,
+        anotherString = "Another String"
+    },
+
+    "A String at index 3!"
 }
 
+-- Here's a few examples of how you would access the table's data:
+
+-- We can use index access for data that has no key:
+
+print( mixedTable[1] )
+print( mixedTable[2] )
+print( mixedTable[3] )
+
+-- For data that has a key name, we can simply use the key's name to get the
+-- data:
+
+print( mixedTable.myNumber )
+
+-- We can also access a subtable and then access its data as well:
+
+print( mixedTable.mySubTable[1] )
+print( mixedTable.mySubTable.anotherNumber )
+print( mixedTable.mySubTable.anotherString )
+
 --==============================================================================
 
--- Here's an example of an Index Table that is holding a bunch of numbers.
-
-local myTableOfNumbers = { 2, 4, 6, 8, 10 }
-
--- We can use square brackets "[]" to access the values stored in the table
-print( myTableOfNumbers[1] )
-print( myTableOfNumbers[2] )
-print( myTableOfNumbers[5] )
-
-print( myTableOfNumbers[0] ) -- Lua does not start counting at 0 - so nil.
-print( myTableOfNumbers[6] ) -- No value stored at index 6 - so also nil.
-
---==============================================================================
-
--- Here's an example of a Dictionary Table of key/value pairs. The dictionary 
--- table below is being used to store some information about a player's weapon.
+-- We can add new keys to an existing table by simply assigning a value to a 
+-- new key.
 
 local playersWeapon =
 {
@@ -70,9 +102,8 @@ local playersWeapon =
     attackRange = 1
 }
 
-print( playersWeapon.name )      -- The typical way to access a key.
-print( playersWeapon["name"] )   -- This is also valid.
-
+print( playersWeapon.name )
+print( playersWeapon.damage )
 
 print( playersWeapon.enchanted ) -- The key 'enchanted' doesn't exist... yet
 
@@ -80,12 +111,12 @@ playersWeapon.enchanted = true   -- But setting it will add it.
 
 print( playersWeapon.enchanted )
 
-
 --==============================================================================
 
--- Tables can also contain other tables...
+-- We can also add subtables into an existing index table by simply accessing 
+-- the index position and creating a new table at that index position:
 
--- Create an empty table to hold spells.
+-- This creates an empty table to hold the player's spells.
 local spellsTable = {}
 
 -- Now, store another table, which holds data about one spell, into the spells 
@@ -112,8 +143,8 @@ spellsTable[2] =
     attackRange = 30
 }
 
--- We can then directly access each spell through its index and then access one of 
--- spell's key/value pairs.
+-- We can then access each spell through its index and then access the
+-- data in each spell table through its key names.
 
 print( spellsTable[1].name )
 print( spellsTable[2].name )
@@ -129,7 +160,8 @@ print( spell2.attackMode )
 
 --==============================================================================
 
--- Existing tables can be modified using insert() and remove().
+-- Lua also provides a module called "table" that allows us to insert and remove
+-- items from an existing table.
 
 -- The code below is a function which will help us print out the weapons table. 
 -- I know that we haven't covered functions yet, so just ignore it for now.
@@ -153,7 +185,7 @@ printTable( weapons )
 
 print( "\nInserting to a specific index - Magic Sword to index 1." )
 
-table.insert( weapons, 1, "Magic Sword" ) -- Doesn't erase 1 but inserts and pushes everything down 1.
+table.insert( weapons, 1, "Magic Sword" ) -- Doesn't erase 1 but inserts and pushes everything down by 1.
 
 printTable( weapons )
 
@@ -168,14 +200,3 @@ print( "\nRemoving - Magic Sword at index 1" )
 table.remove( weapons, 1 ) -- Removes first item, which is "Magic Sword".
 
 printTable( weapons )
-
-print( "\nRemoving - index 2 - Sword" )
-
-local valueThatWasRemoved = table.remove( weapons, 2 ) -- Remove "Sword" and catch return.
-
-print( "valueThatWasRemoved = " .. valueThatWasRemoved .. "\n" )
-
-printTable( weapons )
-
-
-
