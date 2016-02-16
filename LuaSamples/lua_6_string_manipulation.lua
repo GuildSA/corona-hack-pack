@@ -109,6 +109,8 @@ print( subString )
 local myString = string.format( "Test 1 = %s %q", "Hello", "Lua user!" ) -- String and quoted string
 print( myString )
 
+-- http://www.unit-conversion.info/texttools/ascii/#data
+
 myString = string.format( "Test 2 = %c%c%c", 76, 117, 97 ) -- Char
 print( myString )
 

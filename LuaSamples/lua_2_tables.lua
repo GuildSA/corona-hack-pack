@@ -7,22 +7,22 @@
 
 -- An index table contains only non-named or non-keyed values.
 
-local indexTable =
+local teamsRoster =
 {
-    "Alpha",
-    "Bravo",
-    "Charlie",
-    "Delta"
+    "Team Alpha",
+    "Team Bravo",
+    "Team Charlie",
+    "Team Delta",
+    "Team Echo"
 }
 
 -- A dictionary table contains only named or keyed values.
 
-local dictionaryTable =
+local tournamentPlacing =
 {
-    a = "Alpha",
-    b = "Bravo",
-    c = "Charlie",
-    d = "Delta"
+    firstPlace = "Team Delta",
+    secondPlace = "Team Alpha",
+    thirdPlace = "Team Echo"
 }
 
 -- A mixed table contains a mix of indexed and named values.
@@ -33,8 +33,8 @@ local mixedTable =
     "some string!",
     numberVar = 10,
 
-    subTbl1 = indexTable,
-    subTbl2 = dictionaryTable,
+    subTbl1 = teamsRoster,
+    subTbl2 = tournamentPlacing,
 
     subTbl3 =
     {
@@ -63,11 +63,11 @@ print( myTableOfNumbers[6] ) -- No value stored at index 6 - so also nil.
 -- Here's an example of a Dictionary Table of key/value pairs. The dictionary 
 -- table below is being used to store some information about a player's weapon.
 
-local playersWeapon = {
+local playersWeapon =
+{
     name = "Short Sword",
-    type = "weapon",
     damage = 5,
-    cost = 5
+    attackRange = 1
 }
 
 print( playersWeapon.name )      -- The typical way to access a key.
@@ -80,14 +80,61 @@ playersWeapon.enchanted = true   -- But setting it will add it.
 
 print( playersWeapon.enchanted )
 
+
+--==============================================================================
+
+-- Tables can also contain other tables...
+
+-- Create an empty table to hold spells.
+local spellsTable = {}
+
+-- Now, store another table, which holds data about one spell, into the spells 
+-- table at index 1.
+
+spellsTable[1] = 
+{
+    name = "Rain Fire",
+    damage = 5,
+    manaCost = 10,
+    attackMode = "all enemies",
+    attackRange = 15
+}
+
+-- Again, store another table, which holds data about one spell, into the spells 
+-- table at index 2.
+
+spellsTable[2] =
+{
+    name = "Lightning Bolt",
+    damage = 20,
+    manaCost = 20,
+    attackMode = "selected enemy only",
+    attackRange = 30
+}
+
+-- We can then directly access each spell through its index and then access one of 
+-- spell's key/value pairs.
+
+print( spellsTable[1].name )
+print( spellsTable[2].name )
+
+-- We can also create variables that reference the spell subtables and then use 
+-- these variables to access one of the spell's key/value pairs.
+
+local spell1 = spellsTable[1]
+local spell2 = spellsTable[2]
+
+print( spell1.attackMode )
+print( spell2.attackMode )
+
 --==============================================================================
 
 -- Existing tables can be modified using insert() and remove().
 
 -- The code below is a function which will help us print out the weapons table. 
 -- I know that we haven't covered functions yet, so just ignore it for now.
-function printWeaponsTable( tbl )
-    for k,v in pairs( tbl ) do
+function printTable( tbl )
+    for k, v in pairs( tbl ) do
         print( k .. " = " .. v )
     end
 end
@@ -95,38 +142,40 @@ end
 -- Create an index table to hold the player's weapons and add a Dagger to it.
 local weapons = { "Dagger" }
 
-printWeaponsTable( weapons )
+printTable( weapons )
 
 print( "\nInsert - Sword and Club" )
 
 table.insert( weapons, "Sword" )
 table.insert( weapons, "Club" )
 
-printWeaponsTable( weapons )
+printTable( weapons )
 
 print( "\nInserting to a specific index - Magic Sword to index 1." )
 
 table.insert( weapons, 1, "Magic Sword" ) -- Doesn't erase 1 but inserts and pushes everything down 1.
 
-printWeaponsTable( weapons )
+printTable( weapons )
 
 print( "\nRemoving, but not specifying an index will default to removing the last entry, which is Club." )
 
 table.remove( weapons ) -- Removes last item, which is "Club".
 
-printWeaponsTable( weapons )
+printTable( weapons )
 
 print( "\nRemoving - Magic Sword at index 1" )
 
 table.remove( weapons, 1 ) -- Removes first item, which is "Magic Sword".
 
-printWeaponsTable( weapons )
+printTable( weapons )
 
 print( "\nRemoving - index 2 - Sword" )
 
 local valueThatWasRemoved = table.remove( weapons, 2 ) -- Remove "Sword" and catch return.
 
-printWeaponsTable( weapons )
-
 print( "valueThatWasRemoved = " .. valueThatWasRemoved .. "\n" )
+
+printTable( weapons )
+
+
 
