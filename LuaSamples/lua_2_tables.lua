@@ -161,7 +161,7 @@ print( spell2.attackMode )
 --==============================================================================
 
 -- Lua also provides a module called "table" that allows us to insert and remove
--- items from an existing table.
+-- items from an existing index table.
 
 -- The code below is a function which will help us print out the weapons table. 
 -- I know that we haven't covered functions yet, so just ignore it for now.

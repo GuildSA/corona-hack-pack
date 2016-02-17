@@ -1,12 +1,12 @@
 
+--==============================================================================
+
 -- A simple 'for' loop that loops or iterates 3 times and prints the index 
 -- variable.
 
 for i = 1, 3 do
     print( "i = " .. i )
 end
-
-print( " " )
 
 --==============================================================================
 
@@ -17,12 +17,95 @@ for i = 1, 10, 2 do
      print( "i = " .. i )
 end
 
-print( " " )
+--==============================================================================
+
+-- For loops are very useful when working with tables, but there are a couple of 
+-- different ways of iterating the for loop and you need to make sure that you're 
+-- using a method that works for your table.
+
+-- There are basically 3 ways to iterate tables:
+--
+-- 1. We can use the pairs() function to access the key/value pairs. This is the 
+--    most generic way and it works on both index and dictionary tables.
+--    But, for index tables, it does NOT guarantee that the items will be 
+--    accessed in the correct order.
+--
+-- 2. We can use the ipairs() function to access the index/value pairs of an
+--    index table. This is faster than using pairs() and DOES guarantee that 
+--    items will be accessed in the correct order, but it does not work on 
+--    dictionary tables.
+
+-- 3. Finally, we can use the length operator # to get the table size and then 
+--    manually index into the table using square brackets []. This is the 
+--    fastest way to access an index table and guarantee order, but it does 
+--    not work on dictionary tables.
+--
+
+local indexTable =
+{
+    "Alpha",
+    "Bravo",
+    "Charlie",
+    "Delta"
+}
+
+print( "Print an index table using pairs(). Fast but order is NOT guaranteed." )
+
+for i, v in pairs( indexTable ) do
+    print( "Index: " .. i .. " = " .. v )
+end
+
+print( "Print an index table using ipairs(). Possibly slower but order IS guaranteed." )
+
+for i, v in ipairs( indexTable ) do
+    print( "Index: " .. i .. " = " .. v )
+end
+
+print( "Print an index table using # and manual indexing via []. Fast and order IS guaranteed." )
+
+for i = 1, #indexTable do
+    print( "Index: " .. i .. " = " .. indexTable[i] )
+end
+
+
+local dictionaryTable =
+{
+    a = "Alpha",
+    b = "Bravo",
+    c = "Charlie",
+    d = "Delta"
+}
+
+print( "Print an dictionary table using pairs() ..." )
+-- Note how order in a dictionary table is not guaranteed.
+
+for k, v in pairs( dictionaryTable ) do
+    print( "Key: " .. k .. " = " .. v )
+end
+
+-- We can use ipairs() on a mixed table, but be keep in mind, if we use ipairs() 
+-- it will only iterate over index entries in the table and skip over the 
+-- key/value pairs.
+
+local mixedTable =
+{
+    10,
+    "A String at index 2!",
+    myNumber = 20,
+    myString = "A String at key myString!",
+    "A String at index 3!"
+}
+
+print( "It's best to use pairs() to iterate a mixed table ..." )
+
+for k, v in pairs( mixedTable ) do
+    print( "Key: " .. k .. " = " .. v )
+end
 
 --==============================================================================
 
--- The 'break' keyword can force a 'for' loop to stop iterating and exit out.
--- Please Note: Unlike other languages, Lua has no 'continue' keyword.
+-- Now, if there is a good reason to stop or exit a for loop early, we can use 
+-- the 'break' keyword to stop the loop and exit out.
 
 local numbers = { 100, 25, 125, 50, 150, 75, 175 }
 
@@ -40,109 +123,14 @@ for i = 1, #numbers do
 
 end
 
-print( " " )
+-- Please Note: Unlike other languages, Lua has no 'continue' keyword.
+
+print( "---" )
 
 --==============================================================================
 
--- For loops are very useful when working with tables, but there are a couple of 
--- different ways of driving or iterating the for loop and you need to make 
--- sure that you're using a method that works for your table.
-
--- There are basically 3 ways to iterate tables:
---
--- 1. Using # and manual indexing via [].
---    (Does not work on dictionary tables)
---
--- 2. Using pairs() to access the key/value pairs.
---    (Works on both index and dictionary tables)
---
--- 3. Using ipairs() to access the index/value pairs.
---    (Does not work on dictionary tables)
-
-print( "Print an index table using # and manual indexing via []..." )
-
-local indexTable =
-{
-    "Alpha",
-    "Bravo",
-    "Charlie",
-    "Delta"
-}
-
-for i = 1, #indexTable do
-    print( i, indexTable[i] )
-end
-
-
-
-print( "Print an index table using ipairs() ..." )
-
-for i, v in ipairs( indexTable ) do
-    print( i, v )
-end
-
-
-print( "Print an dictionary table using pairs() ..." )
--- Note how order in a dictionary table is not guaranteed.
-
-local dictionaryTable =
-{
-    a = "Alpha",
-    b = "Bravo",
-    c = "Charlie",
-    d = "Delta"
-}
-
-for k, v in pairs( dictionaryTable ) do
-    print( k, v )
-end
-
-print( "You can also use pairs() to iterate an index table ..." )
-
-for k, v in pairs( indexTable ) do
-    print( k, v )
-end
-
-print( "You cannot iterate a dictionary table using # and manual indexing via [] ..." )
-
-for i = 1, #dictionaryTable do
-    print( i, dictionaryTable[i] )
-end
-
-print( "You cannot iterate a dictionary table using ipairs() ..." )
-
-for i, v in ipairs( dictionaryTable ) do
-    print( i, v )
-end
-
-print( "It's best to use pairs() to iterate a mixed table ..." )
--- You can use ipairs() over pairs(), but be careful ipairs() only iterates
--- over index entries in a table. When in doubt - use pairs() over ipairs().
-
-local mixedTable =
-{
-    10,
-    "some string!",
-    numberVar = 10,
-
-    subTbl1 = indexTable,
-    subTbl2 = dictionaryTable,
-
-    subTbl3 =
-    {
-        var1 = 10,
-        var2 = 100,
-        var3 = "Another string"
-    }
-}
-
-for k, v in pairs( mixedTable ) do
-    print( k, v )
-end
-
---==============================================================================
-
--- The 'while' loop continues looping while the expression is true.
+-- Where, 'for' loops are designed to loop over a collection of data, the 'while' 
+-- loop continues looping while some expression is true.
 
 local numRocketsToFire = 3
 local rocketCount = 0
@@ -155,11 +143,12 @@ while rocketCount < numRocketsToFire do
 
 end
 
-print( " " )
+print( "---" )
 
 --==============================================================================
 
--- The 'break' keyword can also break out of a 'while' loop.
+-- We can also use the 'break' keyword on 'while' loops to break out or exit the 
+-- loop.
 
 local number = 0
 
@@ -175,12 +164,10 @@ while number < 10 do
 
 end
 
-print( " " )
-
 --==============================================================================
 
--- The 'repeat-until' loop is like an upside 'while' loop that continues looping
--- as long as the expression is false.
+-- Finally, The 'repeat-until' loop is like an upside 'while' loop that continues looping
+-- as long as some expression is false.
 
 local number = 0
 
@@ -191,5 +178,4 @@ repeat
 	number = number + 1
 
 until number >= 5
-
 
