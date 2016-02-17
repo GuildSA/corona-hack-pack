@@ -1,3 +1,4 @@
+--==============================================================================
 
 -- Define a simple Lua function that prints "Game Over!".
 function printGameOver()
@@ -5,6 +6,23 @@ function printGameOver()
 end
 
 -- Now, call our new function to execute it!
+printGameOver()
+
+--==============================================================================
+
+-- It's also possible to declare a function and assign it to a variable.
+-- This type of declaration is not as common but you will see it used occasionally 
+-- in Corona code where it is necessary to declare a function's name at the top
+-- of a script so it can referenced by other functions that are actually being 
+-- declared before it in the same script file.
+
+local printGameOver
+
+printGameOver = function()
+	print( "Game Over!" )
+end
+
+-- But executing the function will look exactly the same.
 printGameOver()
 
 --==============================================================================
@@ -115,16 +133,12 @@ local theAverage, numberCount = averageAndCount( myNumbers )
 print( "The average of the list is " .. theAverage .. "." )
 print( "The list contained " .. numberCount .. " numbers." )
 
-
-
 --==============================================================================
 
 -- We can also create and store functions inside tables. 
 
 function printSomeMessage( theMessage )
-
     print( theMessage )
-
 end
 
 local tableWithFunc =
