@@ -125,14 +125,16 @@ for k,v in pairs( selectedWeapon ) do
     print( k .. " = " .. v )
 end
 
--- To properly copy a table - create a new table and copy over the key-value pairs.
+-- To properly copy a table - create a new table and manually copy over the 
+-- key-value pairs.
 local enchantedWeapon = {}
 
 for k,v in pairs( selectedWeapon ) do
     enchantedWeapon[k] = v
 end
 
-print("\nenchantedWeapon")
+print("\nenchantedWeapon before changing the vars")
+
 for k,v in pairs( enchantedWeapon ) do
     print( k .. " = " .. v )
 end
@@ -154,4 +156,3 @@ for k,v in pairs( selectedWeapon ) do
 end
 
 --]]
-
