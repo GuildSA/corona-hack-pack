@@ -1,8 +1,8 @@
------------------------------------------------------------------------------------------
+------------------------------------------------------------------------
 --
--- level1.lua
+-- scene1.lua
 --
------------------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 -- Use the require function to include the Corona "composer" module so 
 -- we can create a new scene.
@@ -33,12 +33,13 @@ function scene:create( event )
 
 end
 
----------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 -- Add our event listeners so we can get notified of these scene events!
 scene:addEventListener( "create", scene )
 
-----------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
--- Finally, we return the scene that we just defined so composer can make use of it.
+-- Finally, we return the scene that we just defined so composer can 
+-- make use of it.
 return scene

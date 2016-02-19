@@ -1,6 +1,6 @@
------------------------------------------------------------------------------------------
+------------------------------------------------------------------------
 --
--- level1.lua
+-- scene1.lua
 --
 -- Learn about Corona Transitions:
 -- https://docs.coronalabs.com/api/library/transition/
@@ -10,7 +10,7 @@
 --
 -- A visual guide to Easing Functions:
 -- http://easings.net/
------------------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 -- Use the require function to include the Corona "composer" module so 
 -- we can create a new scene.
@@ -19,11 +19,11 @@ local composer = require( "composer" )
 -- Use composer to create a new scene. 
 local scene = composer.newScene()
 
--- These will eventually hold our Lakitu image.
+-- This will eventually hold our Lakitu image.
 local lakitu = nil
 
 -- Set the background color to a light blue color. 
-display.setDefault( "background", 0.2, 0.5, 1 )
+display.setDefault( "background", 0.2, 0.5, 1.0 )
 
 -- Declare two variables to hold our functions that move Lakitu. 
 local moveLakituLeft
@@ -34,10 +34,19 @@ moveLakituLeft = function( obj )
 	-- Set the xScale back to 1 so Lakitu will face in his original direction.
 	lakitu.xScale = 1
 
-	-- This transition will make Lakitu move left and when it gets 
+	-- This transition will make Lakitu move left and when he gets 
 	-- there, the transition will call the moveLakituRight function to 
 	-- move him back.
-	transition.to( lakitu, { time=2000, transition=easing.outExpo, x=80, onComplete=moveLakituRight } )
+
+	local params =
+	{
+		time = 2000,
+		x = 80,
+		transition = easing.outExpo,
+		onComplete = moveLakituRight
+	}
+
+	transition.to( lakitu, params )
 
 end
 
@@ -49,16 +58,20 @@ moveLakituRight = function( obj )
 	-- This transition will make Lakitu move right and when it gets 
 	-- there, the transition will call the moveLakituLeft function to 
 	-- move him back.
-	transition.to( lakitu, { time=2000, transition=easing.outExpo, x=940, onComplete=moveLakituLeft } )
+
+	local params =
+	{
+		time = 2000,
+		x = 940,
+		transition = easing.outExpo,
+		onComplete = moveLakituLeft
+	}
+
+	transition.to( lakitu, params )
 
 end
 
 function scene:create( event )
-
-	-- Called when the scene's view does not exist.
-	-- 
-	-- INSERT code here to initialize the scene
-	-- e.g. add display objects to 'sceneGroup', add touch listeners, etc.
 
 	local sceneGroup = self.view
 
@@ -68,17 +81,19 @@ function scene:create( event )
 
 	sceneGroup:insert( lakitu )
 
-	-- As soon as the scene is created, make Lakitu move left.
+	-- Since Lakitu starts on the right side of the screen, as soon as the 
+	-- scene is created, make him move left.
 	moveLakituLeft()
 
 end
 
----------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 -- Add our event listeners so we can get notified of these scene events!
 scene:addEventListener( "create", scene )
 
-----------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
--- Finally, we return the scene that we just defined so composer can make use of it.
+-- Finally, we return the scene that we just defined so composer can 
+-- make use of it.
 return scene

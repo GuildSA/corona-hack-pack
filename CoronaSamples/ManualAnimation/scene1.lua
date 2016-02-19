@@ -1,8 +1,8 @@
------------------------------------------------------------------------------------------
+------------------------------------------------------------------------
 --
--- level1.lua
+-- scene1.lua
 --
------------------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 -- Use the require function to include the Corona "composer" module so 
 -- we can create a new scene.
@@ -11,27 +11,24 @@ local composer = require( "composer" )
 -- Use composer to create a new scene. 
 local scene = composer.newScene()
 
--- Lets cache our display's width and height so our Mario can find the screen edges
--- while jumping around.
+-- Lets cache our display's width and height so our Mario can find the 
+-- screen edges while jumping around.
 local screenW = display.contentWidth
 local screenH = display.contentHeight
 
--- These will eventually hold our Mario image that we will animate and render.
+-- This will eventually hold our Mario image that we will animate 
+-- and render.
 local mario = nil
 
--- This is used by the getDeltaTime() utility function to keep track of how much time
--- has elapsed since the last frame of rendering.
+-- This is used by the getDeltaTime() utility function to keep track 
+-- of how much time has elapsed since the last frame of rendering.
 local prevTime = 0
 
 -- Set the background color to a light blue color. 
 display.setDefault( "background", 0.2, 0.5, 1 )
 
-function scene:create( event )
 
-	-- Called when the scene's view does not exist.
-	-- 
-	-- INSERT code here to initialize the scene
-	-- e.g. add display objects to 'sceneGroup', add touch listeners, etc.
+function scene:create( event )
 
 	local sceneGroup = self.view
 
@@ -49,7 +46,7 @@ function scene:create( event )
 	-- as the game loads so we will give him some initial velocity values to get
 	-- him bouncing.
 	mario.velocityX = 0.5
-    mario.velocityY = 0.8
+    mario.velocityY = 0.0
 
 	-- Make sure to add our Mario image to the scene group so the scene 
 	-- can manage him.
@@ -57,11 +54,12 @@ function scene:create( event )
 
 end
 
---------------------------------------------------------------------------------
--- A call to the getDeltaTime() utility function returns how much time has 
--- elapsed since the last time we called it. It's basically only used by the 
--- listener function onFrameEnter() to scale animation values.
---------------------------------------------------------------------------------
+------------------------------------------------------------------------
+-- A call to the getDeltaTime() utility function returns how much time 
+-- has elapsed since the last time we called it. It's basically only 
+-- used by the listener function onFrameEnter() to scale animation 
+-- values.
+------------------------------------------------------------------------
 local function getDeltaTime()
 	
    local currentTime = system.getTimer()
@@ -72,23 +70,8 @@ local function getDeltaTime()
 
 end
 
---------------------------------------------------------------------------------
--- As our game runs, Corona will generate an event called "enterFrame". If we 
--- listen for this event, we can use it as an opportunity to animate an object 
--- by changing some aspect of it each frame just before Corona renders the frame.
--- In this sample, we're using it to make our Mario object jump around the scene.
---------------------------------------------------------------------------------
 local function onFrameEnter()
 
-	-- Delta time is a fancy way of saying how much time has elapsed since the
-	-- last time we updated our game objects. When we move or animate objects in
-	-- a game it's very important to take into consideration how slow or fast
-	-- the host device is running. If we don't scale our animations by delta
-	-- time our Mario will jump around faster on fast devices and slower on 
-	-- slow devices. This would mean that how the game plays or feel would vary
-	-- depending on whether or not the game was played on a high performance  
-	-- phone vs a low performance phone and that wouldn't be a great experience 
-	-- for anyone.
 	local deltaTime = getDeltaTime()
 
     -- We can simulate gravity by constantly adding some amount to
@@ -115,25 +98,17 @@ local function onFrameEnter()
         -- X velocity so he will change his direction of travel.
 		mario.velocityX = -(mario.velocityX)
 
-		-- Recompute his position.
-		mario.x = mario.x + (mario.velocityX * deltaTime)
-    	mario.y = mario.y + (mario.velocityY * deltaTime)
-
     	-- Since Mario just bounced off the scene's left or right side,
-        -- invert or flip his image so he facing the correct direction.
+        -- invert or flip his xScale so he'll face the opposite direction.
 		mario.xScale = -(mario.xScale)
 
 	end
 
-	if mario.y > (screenH - (mario.height * 0.5)) then
+	if mario.y >= (screenH - (mario.height * 0.5)) then
 
-        -- If Mario hits the bottom of the scene's, invert his Y velocity so 
+        -- If Mario hits the bottom of the scene, reset his Y velocity so 
         -- he will bounce back up.
-		mario.velocityY = -(mario.velocityY)
-
-		-- Recompute his position.
-		mario.x = mario.x + (mario.velocityX * deltaTime)
-    	mario.y = mario.y + (mario.velocityY * deltaTime)
+		mario.velocityY = -2.0
 
 	end
 
@@ -141,19 +116,9 @@ end
 
 function scene:show( event )
 
-	local sceneGroup = self.view
 	local phase = event.phase
 	
-	if phase == "will" then
-
-		-- Called when the scene is still off screen and is about to move on screen
-
-	elseif phase == "did" then
-
-		-- Called when the scene is now on screen
-		-- 
-		-- INSERT code here to make the scene come alive
-		-- e.g. start timers, begin animation, play audio, etc.
+	if phase == "did" then
 
 		-- Before we start listening to the "enterFrame" event, we should
 		-- initialize prevTime to the current time. Otherwise the first call
@@ -170,36 +135,27 @@ end
 
 function scene:hide( event )
 
-	local sceneGroup = self.view
 	local phase = event.phase
 	
 	if event.phase == "will" then
-
-		-- Called when the scene is on screen and is about to move off screen
-		--
-		-- INSERT code here to pause the scene
-		-- e.g. stop timers, stop animation, unload sounds, etc.)
 
 		-- If the scene is going to be hidden - remove our listener.
 		-- There's no reason animate our Mario if no one can see him.
 		Runtime:removeEventListener( "enterFrame", onFrameEnter )
 
-	elseif phase == "did" then
-
-		-- Called when the scene is now off screen
-
 	end	
 	
 end
 
----------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 -- Add our event listeners so we can get notified of these scene events!
 scene:addEventListener( "create", scene )
 scene:addEventListener( "show", scene )
 scene:addEventListener( "hide", scene )
 
-----------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
--- Finally, we return the scene that we just defined so composer can make use of it.
+-- Finally, we return the scene that we just defined so composer can 
+-- make use of it.
 return scene

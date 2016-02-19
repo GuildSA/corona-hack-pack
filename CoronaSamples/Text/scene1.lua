@@ -1,10 +1,8 @@
------------------------------------------------------------------------------------------
+------------------------------------------------------------------------
 --
--- level1.lua
+-- scene1.lua
 --
--- The purpose of the "level1.lua" script is define a new scene whose only job is to 
--- render an image of Mario on a light blue background.
------------------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 -- Use the require function to include the Corona "composer" module so 
 -- we can create a new scene.
@@ -28,23 +26,21 @@ function scene:create( event )
 
 
 	local systemText = display.newText( "This is the native system font.", 510, 150, native.systemFont, 55 )
-	systemText:setFillColor( 1, 0, 0 )
+	systemText:setFillColor( 1.0, 0.0, 0.0 )
 
 
-	local fancyText = display.newText( "This uses a fancy custom font!", 
-		510, 300, "DelitschAntiqua", 55 )
+	local fancyText = display.newText( "This uses a fancy custom font!", 510, 300, "DelitschAntiqua", 55 )
 	fancyText:setFillColor( 0.0 )
-
 
 	local options = 
 	{
 	    text = "This text has been aligned to the right and forced onto multiple lines by setting the align and width properties in an option.",
 	    x = 510,
 	    y = 560,
-	    width = 250,     -- Required for multi-line and alignment
+	    width = 250, -- Required for multi-line
 	    font = native.systemFontBold,   
 	    fontSize = 30,
-	    align = "right"  -- 
+	    align = "right" 
 	}
 
 	local optionsText = display.newText( options )
@@ -55,13 +51,14 @@ function scene:create( event )
 
 end
 
----------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
--- Add an event listener for the create event so our create function above will 
--- get called.
+-- Add an event listener for the create event so our create function 
+-- above will get called.
 scene:addEventListener( "create", scene )
 
-----------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
--- Finally, we return the scene that we just defined so composer can make use of it.
+-- Finally, we return the scene that we just defined so composer can 
+-- make use of it.
 return scene

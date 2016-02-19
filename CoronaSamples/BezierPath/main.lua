@@ -251,13 +251,13 @@ local function addVisualControlPoint( x, y )
 	visualControlPoints[#visualControlPoints+1] = point
 	
 	if #visualControlPoints == 1 then
-		point:setFillColor( 1, 0, 0 )
+		point:setFillColor( 1.0, 0.0, 0.0 )
 	elseif #visualControlPoints == 2 then
-		point:setFillColor( 0, 1, 0 )
+		point:setFillColor( 0.0, 1.0, 0.0 )
 	elseif #visualControlPoints == 3 then
-		point:setFillColor( 0, 1, 0 )
+		point:setFillColor( 0.0, 1.0, 0.0 )
 	else
-		point:setFillColor( 1, 0, 0 )
+		point:setFillColor( 1.0, 0.0, 0.0 )
 	end
 	
 end

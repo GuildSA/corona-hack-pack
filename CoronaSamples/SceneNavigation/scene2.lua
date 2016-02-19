@@ -1,8 +1,8 @@
------------------------------------------------------------------------------------------
+------------------------------------------------------------------------
 --
 -- scene2.lua
 --
------------------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 -- Require the widget library
 local widget = require( "widget" )
@@ -23,20 +23,16 @@ function onEventListener( event )
 
 end
 
-
 function scene:create( event )
 
-	-- Called when the scene's view does not exist.
-	-- 
-	-- INSERT code here to initialize the scene
-	-- e.g. add display objects to 'sceneGroup', add touch listeners, etc.
-
-	print( "Create scene 2's view!" )
+	print( "Scene 2 create!" )
 
 	local sceneGroup = self.view
 
 	local helpText = display.newText( "Scene #2", 380, 150, native.systemFont, 55 )
-	helpText:setFillColor( 0, 1, 0 )
+	helpText:setFillColor( 0.0, 1.0, 0.0 )
+
+	-- https://docs.coronalabs.com/api/library/widget/newButton.html
 
 	local button = widget.newButton {
 
@@ -45,7 +41,7 @@ function scene:create( event )
 		defaultFile = "button_gray.png",
 		overFile = "button_gray_over.png",
 		label = "Go To Scene 1",
-		labelColor = { default = { 51, 51, 51, 255 }, },
+		labelColor = { default = { 1.0, 1.0, 1.0, 1.0 }, },
 		fontSize = 50,
 		onEvent = onEventListener,
 	}
@@ -60,7 +56,6 @@ end
 
 function scene:show( event )
 
-	local sceneGroup = self.view
 	local phase = event.phase
 	
 	if phase == "will" then
@@ -69,7 +64,7 @@ function scene:show( event )
 
 		print("Scene 2 will show.")
 
-		display.setDefault( "background", 0.8, 0.2, 1 )
+		display.setDefault( "background", 1.0, 0.1, 0.2 )
 
 	elseif phase == "did" then
 
@@ -86,7 +81,6 @@ end
 
 function scene:hide( event )
 
-	local sceneGroup = self.view
 	local phase = event.phase
 	
 	if event.phase == "will" then
@@ -114,7 +108,7 @@ function scene:destroy( event )
 
 end
 
----------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 -- Add our event listeners so we can get notified of these scene events!
 scene:addEventListener( "create", scene )
@@ -122,7 +116,8 @@ scene:addEventListener( "show", scene )
 scene:addEventListener( "hide", scene )
 scene:addEventListener( "destroy", scene )
 
-----------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
--- Finally, we return the scene that we just defined so composer can make use of it.
+-- Finally, we return the scene that we just defined so composer can 
+-- make use of it.
 return scene

@@ -1,10 +1,10 @@
------------------------------------------------------------------------------------------
+------------------------------------------------------------------------
 --
--- level1.lua
+-- scene1.lua
 --
--- The purpose of the "level1.lua" script is define a new scene whose only job is to 
--- render an image of Mario on a light blue background.
------------------------------------------------------------------------------------------
+-- The purpose of the "scene1.lua" script is define a new scene whose 
+-- only job is to render an image of Mario on a light blue background.
+------------------------------------------------------------------------
 
 -- Use the require function to include the Corona "composer" module so 
 -- we can create a new scene.
@@ -16,13 +16,9 @@ local scene = composer.newScene()
 -- Set the background color to a light blue color. 
 display.setDefault( "background", 0.2, 0.5, 1 )
 
--- Declare a function on our scene called create.
+-- Declare a function on our scene called create. This will be called 
+-- when the scene's view does not exist.
 function scene:create( event )
-
-	-- Called when the scene's view does not exist.
-	-- 
-	-- INSERT code here to initialize the scene
-	-- e.g. add display objects to 'sceneGroup', add touch listeners, etc.
 
 	local sceneGroup = self.view
 
@@ -47,13 +43,15 @@ function scene:create( event )
 
 end
 
----------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
--- Add an event listener for the create event so our create function above will 
--- get called.
+-- Add an event listener for the create event so our create function 
+-- above will get called.
 scene:addEventListener( "create", scene )
 
-----------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
--- Finally, we return the scene that we just defined so composer can make use of it.
+-- Finally, we return the scene that we just defined so composer can 
+-- make use of it.
 return scene
+

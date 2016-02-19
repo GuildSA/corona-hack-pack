@@ -1,10 +1,8 @@
------------------------------------------------------------------------------------------
+------------------------------------------------------------------------
 --
--- level1.lua
+-- scene1.lua
 --
--- The purpose of the "level1.lua" script is define a new scene whose only job is to 
--- render an image of Mario on a light blue background.
------------------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 local physics = require( "physics" )
 
@@ -26,7 +24,7 @@ local mario = nil
 local block = nil
 local spacePressed = false
 
--- forward declarations and other locals
+-- forward declarations and other locals.
 local screenW = display.contentWidth
 local screenH = display.contentHeight
 local halfW = display.contentWidth*0.5
@@ -41,15 +39,10 @@ end
 -- Declare a function on our scene called create.
 function scene:create( event )
 
-	-- Called when the scene's view does not exist.
-	-- 
-	-- INSERT code here to initialize the scene
-	-- e.g. add display objects to 'sceneGroup', add touch listeners, etc.
+    local sceneGroup = self.view
 
     physics.start()
     physics.setGravity( 0, 30 )
-
-	local sceneGroup = self.view
 
     local options = 
     {
@@ -63,7 +56,7 @@ function scene:create( event )
     }
 
     local helpText = display.newText( options )
-    helpText:setFillColor( 1, 0, 0 )
+    helpText:setFillColor( 1.0, 0.0, 0.0 )
 
     --
     -- Add some ground to stand on...
@@ -132,27 +125,23 @@ local function onFrameEnter()
         return
     end
 
-    if mario.isMoving then
+    if mario.isMovingLeft then
 
-        if mario.direction == "left" then
+        mario.xScale = -1
+        mario:applyLinearImpulse( -100, 0, mario.x, mario.y )
 
-            mario.xScale = -1
-            mario:applyLinearImpulse( -100, 0, mario.x, mario.y )
+    elseif mario.isMovingRight then
 
-        elseif mario.direction == "right" then
-
-            mario.xScale = 1
-            mario:applyLinearImpulse( 100, 0, mario.x, mario.y )
-        end
-
-        print( string.format("Mario's x = %d, y = %d", mario.x, mario.y) )
-
+        mario.xScale = 1
+        mario:applyLinearImpulse( 100, 0, mario.x, mario.y )
     end
 
-    if spacePressed == true   then
+    --print( string.format("Mario's x = %d, y = %d", mario.x, mario.y) )
+
+    if spacePressed == true then
 
         -- Apply some force to make Mario jump up.
-        mario:applyLinearImpulse( 0, -1500, mario.x, mario.y )
+        mario:applyLinearImpulse( 0, -1600, mario.x, mario.y )
 
     end
 
@@ -166,10 +155,11 @@ local function onFrameEnter()
         mario.x = screenW + offscreen
     end
 
-    -- If Mario falls off the ground - kill all his velocity and reset him.
-    if mario.y > 1000 then
+    -- If Mario falls off the ground - reset his linear velocity and move him
+    -- back to his starting point.
+    if mario.y > screenH + 100 then
 
-        mario:setLinearVelocity( 0, 0 )
+        mario:setLinearVelocity( 0.0, 0.0 )
         mario.x = 500
         mario.y = 0
 
@@ -181,11 +171,13 @@ local function onFrameEnter()
         block.x = screenW + offscreen
     end
 
-    -- If the block falls off the ground - kill its velocity and reset it.
-    if block.y > 1000 then
+    -- If block falls off the ground - reset both its linear & angular velocity 
+    -- and move it back to its starting point.
+    if block.y > screenH + 100 then
 
-        block:setLinearVelocity( 0, 0 )
-        block.rotation = 0
+        block:setLinearVelocity( 0.0, 0 )
+        block.angularVelocity = 0.0
+        block.rotation = 0.0
         block.x = 500
         block.y = 0
 
@@ -197,24 +189,20 @@ local function onKeyEvent( event )
 
     if event.keyName == "left" then
 
-        mario.direction = "left"
-
         if event.phase == "down" then
-            mario.isMoving = true
+            mario.isMovingLeft = true
         else
-            mario.isMoving = false
+            mario.isMovingLeft = false
         end
 
         return true
 
     elseif event.keyName == "right" then
 
-        mario.direction = "right"
-
         if event.phase == "down" then
-            mario.isMoving = true
+            mario.isMovingRight = true
         else
-            mario.isMoving = false
+            mario.isMovingRight = false
         end
 
         return true
@@ -238,24 +226,9 @@ end
 
 function scene:show( event )
 
-	local sceneGroup = self.view
 	local phase = event.phase
 	
-	if phase == "will" then
-
-		-- Called when the scene is still off screen and is about to move on screen
-
-	elseif phase == "did" then
-
-		-- Called when the scene is now on screen
-		-- 
-		-- INSERT code here to make the scene come alive
-		-- e.g. start timers, begin animation, play audio, etc.
-
-		-- Before we start listening to the "enterFrame" event, we should
-		-- initialize prevTime to the current time. Otherwise the first call
-		-- to getDeltaTime() could return an absurd value.
-		prevTime = system.getTimer()
+	if phase == "did" then
 
 		-- If the scene has been shown - add our listeners so we can start
 		-- moving our Mario!
@@ -269,15 +242,9 @@ end
 
 function scene:hide( event )
 
-	local sceneGroup = self.view
 	local phase = event.phase
 	
 	if event.phase == "will" then
-
-		-- Called when the scene is on screen and is about to move off screen
-		--
-		-- INSERT code here to pause the scene
-		-- e.g. stop timers, stop animation, unload sounds, etc.)
 
 		-- If the scene is going to be hidden - remove our listeners.
 		-- There's no reason to move our Mario if no one can see him.
@@ -285,23 +252,20 @@ function scene:hide( event )
 		Runtime:removeEventListener( "key", onKeyEvent )
         Runtime:removeEventListener( "collision", onCollision )
 
-	elseif phase == "did" then
-
-		-- Called when the scene is now off screen
-
 	end	
 	
 end
 
----------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
--- Add an event listener for the create event so our create function above will 
--- get called.
+-- Add an event listener for the create event so our create function 
+-- above will get called.
 scene:addEventListener( "create", scene )
 scene:addEventListener( "show", scene )
 scene:addEventListener( "hide", scene )
 
-----------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
--- Finally, we return the scene that we just defined so composer can make use of it.
+-- Finally, we return the scene that we just defined so composer can 
+-- make use of it.
 return scene

@@ -1,8 +1,8 @@
------------------------------------------------------------------------------------------
+------------------------------------------------------------------------
 --
--- level1.lua
+-- scene1.lua
 --
------------------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 -- Use the require function to include the Corona "composer" module so 
 -- we can create a new scene.
@@ -11,8 +11,8 @@ local composer = require( "composer" )
 -- Use composer to create a new scene. 
 local scene = composer.newScene()
 
--- Lets cache our display's width and height so our Mario can find the screen edges
--- while jumping around.
+-- Lets cache our display's width and height so our Mario can find 
+-- the screen edges while jumping around.
 local screenW = display.contentWidth
 local screenH = display.contentHeight
 
@@ -38,15 +38,10 @@ end
 
 function scene:create( event )
 
-	-- Called when the scene's view does not exist.
-	-- 
-	-- INSERT code here to initialize the scene
-	-- e.g. add display objects to 'sceneGroup', add touch listeners, etc.
-
 	local sceneGroup = self.view
 
 	local helpText = display.newText( "Tap Mario or the coin for some sound FX!", 510, 200, native.systemFont, 55 )
-	helpText:setFillColor( 1, 0, 0 )
+	helpText:setFillColor( 1.0, 0.0, 0.0 )
 
 	local backgroundMusic = audio.loadStream( "paper_mario_main_title.mp3")
 
@@ -75,13 +70,14 @@ function scene:create( event )
 
 end
 
----------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 -- Add our event listeners so we can get notified of these scene events!
 scene:addEventListener( "create", scene )
 
-----------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
--- Finally, we return the scene that we just defined so composer can make use of it.
+-- Finally, we return the scene that we just defined so composer can 
+-- make use of it.
 return scene
 
