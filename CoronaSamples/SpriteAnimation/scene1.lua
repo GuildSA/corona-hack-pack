@@ -12,7 +12,7 @@ local composer = require( "composer" )
 local scene = composer.newScene()
 
 -- Set the background color to a light blue color. 
-display.setDefault( "background", 0.2, 0.5, 1 )
+display.setDefault( "background", 0.2, 0.5, 1.0 )
 
 function scene:create( event )
 

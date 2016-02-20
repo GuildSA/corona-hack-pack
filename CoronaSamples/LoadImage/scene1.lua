@@ -22,6 +22,8 @@ function scene:create( event )
 
 	local sceneGroup = self.view
 
+	-- https://docs.coronalabs.com/api/library/display/newImageRect.html
+
 	local mario = display.newImageRect( "mario.png", 190, 250 )
 
 	-- Position the Mario image by setting the image's X and Y positions.
@@ -38,7 +40,8 @@ function scene:create( event )
 	-- You can rotate the image using the rotation property.
 	--mario.rotation = 45
 	
-	-- Make sure to add our Mario image to the scene group so we can render it.
+	-- Make sure to add our Mario image to the scene group so the
+	-- scene will clean it up when this scene is destroyed.
 	sceneGroup:insert( mario )
 
 end
@@ -47,6 +50,9 @@ end
 
 -- Add an event listener for the create event so our create function 
 -- above will get called.
+-- https://docs.coronalabs.com/api/type/EventListener/addEventListener.html
+-- https://docs.coronalabs.com/api/event/scene/index.html
+
 scene:addEventListener( "create", scene )
 
 ------------------------------------------------------------------------

@@ -37,7 +37,6 @@ moveLakituLeft = function( obj )
 	-- This transition will make Lakitu move left and when he gets 
 	-- there, the transition will call the moveLakituRight function to 
 	-- move him back.
-
 	local params =
 	{
 		time = 2000,
@@ -55,10 +54,9 @@ moveLakituRight = function( obj )
 	-- Set Lakitu's xScale to -1 to flip the direction that he faces.
 	lakitu.xScale = -1
 
-	-- This transition will make Lakitu move right and when it gets 
+	-- This transition will make Lakitu move right and when he gets 
 	-- there, the transition will call the moveLakituLeft function to 
 	-- move him back.
-
 	local params =
 	{
 		time = 2000,

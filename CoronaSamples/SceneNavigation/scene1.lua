@@ -14,12 +14,13 @@ local composer = require( "composer" )
 -- Use composer to create a new scene. 
 local scene = composer.newScene()
 
-
+-- This function is a call-back. When the user taps the button, this
+-- function will get called.
 function onEventListener( event )
 
 	print( "Going to scene 2!" )
 
-	composer.gotoScene( "scene2", "slideLeft", 800  )
+	composer.gotoScene( "scene2", "slideLeft", 800 )
 
 end
 
@@ -85,7 +86,7 @@ function scene:hide( event )
 	
 	if event.phase == "will" then
 
-		-- Called when the scene is on screen and is about to move off screen
+		-- Called when the scene is on screen and is about to move off screen.
 		--
 		-- INSERT code here to pause the scene
 		-- e.g. stop timers, stop animation, unload sounds, etc.)
@@ -94,7 +95,7 @@ function scene:hide( event )
 
 	elseif phase == "did" then
 
-		-- Called when the scene is now off screen
+		-- Called when the scene is now off screen.
 
 		print("Scene 1 did hide.")
 
@@ -111,6 +112,9 @@ end
 ------------------------------------------------------------------------
 
 -- Add our event listeners so we can get notified of these scene events!
+-- https://docs.coronalabs.com/api/type/EventListener/addEventListener.html
+-- https://docs.coronalabs.com/api/event/scene/index.html
+
 scene:addEventListener( "create", scene )
 scene:addEventListener( "show", scene )
 scene:addEventListener( "hide", scene )

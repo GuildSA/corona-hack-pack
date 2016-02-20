@@ -14,6 +14,7 @@ local scene = composer.newScene()
 -- Set the background color to a light blue color. 
 display.setDefault( "background", 0.2, 0.5, 1.0 )
 
+-- This will eventually hold our Mario image.
 local mario = nil
 
 ------------------------------------------------------------------------
@@ -36,8 +37,10 @@ function scene:create( event )
 
 	local sceneGroup = self.view
 
+
     local helpText = display.newText( "Use your laptop's keyboard to move Mario!", 500, 150, native.systemFont, 55 )
     helpText:setFillColor( 1.0, 0.0, 0.0 )
+
 
 	mario = display.newImageRect( "mario.png", 190, 250 )
 
@@ -46,6 +49,7 @@ function scene:create( event )
 	-- The Y position moves Mario up and down.
 	mario.x = 500
 	mario.y = 450
+
 
 	sceneGroup:insert( mario )
     sceneGroup:insert( helpText )
@@ -157,7 +161,7 @@ function scene:show( event )
 
 		-- Before we start listening to the "enterFrame" event, we should
 		-- initialize prevTime to the current time. Otherwise the first call
-		-- to getDeltaTime() could return an absurd value.
+		-- to getDeltaTime() could return an incorrect value.
 		prevTime = system.getTimer()
 
 		-- If the scene has been shown - add our listeners so we can start
