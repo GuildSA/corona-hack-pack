@@ -20,7 +20,10 @@ function onEventListener( event )
 
 	print( "Going to scene 2!" )
 
+	-- https://docs.coronalabs.com/api/library/composer/gotoScene.html
+	
 	composer.gotoScene( "scene2", "slideLeft", 800 )
+	--composer.gotoScene( "scene2", "slideUp", 800 )
 
 end
 
