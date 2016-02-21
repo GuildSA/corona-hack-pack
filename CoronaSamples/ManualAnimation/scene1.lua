@@ -40,11 +40,11 @@ function scene:create( event )
 	mario.x = 500
 	mario.y = 300
 
-	-- Since we want to move Mario around the scene, we'll add two new property
-	-- variables to our mario object so we can keep track on his velocity along
-	-- both the X and Y axis of movement. Also, we want him start moving as soon
-	-- as the game loads so we will give him some initial velocity values to get
-	-- him bouncing.
+	-- Since we want to move Mario around the scene, we'll add two new 
+	-- property variables to our mario object so we can keep track on 
+	-- his velocity along both the X and Y axis of movement. Also, we 
+	-- want him start moving as soon as the game loads so we will give 
+	-- him some initial velocity values to get him bouncing.
 	mario.velocityX = 0.5
     mario.velocityY = 0.0
 
