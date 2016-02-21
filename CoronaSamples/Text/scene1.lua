@@ -18,6 +18,7 @@ function scene:create( event )
 
 	local sceneGroup = self.view
 
+	-- https://docs.coronalabs.com/api/library/display/newText.html
 
 	local systemText = display.newText( "This is the native system font.", 510, 150, native.systemFont, 55 )
 	systemText:setFillColor( 1.0, 0.0, 0.0 )
@@ -32,16 +33,16 @@ function scene:create( event )
 	    x = 510,
 	    y = 560,
 	    width = 250, -- Required for multi-line
-	    font = native.systemFontBold,   
+	    font = native.systemFontBold,
 	    fontSize = 30,
-	    align = "right" 
+	    align = "right"
 	}
 
-	local optionsText = display.newText( options )
+	local multiLineText = display.newText( options )
 
 	sceneGroup:insert( systemText )
 	sceneGroup:insert( fancyText )
-	sceneGroup:insert( optionsText )
+	sceneGroup:insert( multiLineText )
 
 end
 
