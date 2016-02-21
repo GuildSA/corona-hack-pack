@@ -61,7 +61,7 @@ function scene:show( event )
 	
 	if phase == "will" then
 
-		-- Called when the scene is still off screen and is about to move on screen
+		-- Called when the scene is still off screen and is about to move on screen.
 
 		print("Scene 2 will show.")
 
@@ -84,7 +84,7 @@ function scene:hide( event )
 
 	local phase = event.phase
 	
-	if event.phase == "will" then
+	if phase == "will" then
 
 		-- Called when the scene is on screen and is about to move off screen.
 		--
@@ -111,7 +111,9 @@ end
 
 ------------------------------------------------------------------------
 
--- Add our event listeners so we can get notified of these scene events!
+-- Add event listeners for all of the scene events we want to get called for!
+-- https://docs.coronalabs.com/api/type/EventListener/addEventListener.html
+-- https://docs.coronalabs.com/api/event/scene/index.html
 scene:addEventListener( "create", scene )
 scene:addEventListener( "show", scene )
 scene:addEventListener( "hide", scene )

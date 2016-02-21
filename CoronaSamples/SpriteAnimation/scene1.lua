@@ -35,7 +35,7 @@ end
 
 ------------------------------------------------------------------------
 
--- Add our event listeners so we can get notified of these scene events!
+-- Add event listeners for all of the scene events we want to get called for!
 scene:addEventListener( "create", scene )
 
 ------------------------------------------------------------------------

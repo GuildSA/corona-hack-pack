@@ -20,7 +20,7 @@ local mario = nil
 ------------------------------------------------------------------------
 -- A call to the getDeltaTime() utility function returns how much time 
 -- has elapsed since the last time we called it. It's basically only 
--- used by the listener function onFrameEnter() to scale animation 
+-- used by the listener function onEnterFrame() to scale animation 
 -- values.
 ------------------------------------------------------------------------
 local function getDeltaTime()
@@ -63,7 +63,7 @@ end
 -- before Corona renders the frame. In this sample, we're using it to 
 -- move our Mario image around via the keyboard.
 ------------------------------------------------------------------------
-local function onFrameEnter()
+local function onEnterFrame()
 
     -- Delta time is a fancy way of saying how much time has elapsed since the
     -- last time we updated our game objects. When we move or animate objects in
@@ -100,7 +100,7 @@ local function onFrameEnter()
 
 end
 
-local function onKeyEvent( event )
+local function onKey( event )
 
     -- https://docs.coronalabs.com/api/event/key/keyName.html
 
@@ -166,8 +166,8 @@ function scene:show( event )
 
 		-- If the scene has been shown - add our listeners so we can start
 		-- moving our Mario!
-		Runtime:addEventListener( "enterFrame", onFrameEnter )
-		Runtime:addEventListener( "key", onKeyEvent )
+		Runtime:addEventListener( "enterFrame", onEnterFrame )
+		Runtime:addEventListener( "key", onKey )
 
 	end
 
@@ -177,12 +177,12 @@ function scene:hide( event )
 
 	local phase = event.phase
 	
-	if event.phase == "will" then
+	if phase == "will" then
 
 		-- If the scene is going to be hidden - remove our listeners.
 		-- There's no reason to move our Mario if no one can see him.
-		Runtime:removeEventListener( "enterFrame", onFrameEnter )
-		Runtime:removeEventListener( "key", onKeyEvent )
+		Runtime:removeEventListener( "enterFrame", onEnterFrame )
+		Runtime:removeEventListener( "key", onKey )
 
 	end	
 	
@@ -190,8 +190,7 @@ end
 
 ------------------------------------------------------------------------
 
--- Add an event listener for the create event so our create function 
--- above will get called.
+-- Add event listeners for all of the scene events we want to get called for!
 scene:addEventListener( "create", scene )
 scene:addEventListener( "show", scene )
 scene:addEventListener( "hide", scene )

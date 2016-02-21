@@ -47,8 +47,7 @@ end
 
 ------------------------------------------------------------------------
 
--- Add an event listener for the create event so our create function 
--- above will get called.
+-- Add event listeners for all of the scene events we want to get called for!
 scene:addEventListener( "create", scene )
 
 ------------------------------------------------------------------------

@@ -10,11 +10,11 @@
 -- we can create a new scene.
 local composer = require( "composer" )
 
--- Use composer to create a new scene. 
+-- Use composer to create a new scene.
 local scene = composer.newScene()
 
 -- Set the background color to a light blue color. 
-display.setDefault( "background", 0.2, 0.5, 1 )
+display.setDefault( "background", 0.2, 0.5, 1.0 )
 
 -- Declare a function on our scene called create. This will be called 
 -- when the scene's view does not exist.
@@ -48,8 +48,9 @@ end
 
 ------------------------------------------------------------------------
 
--- Add an event listener for the create event so our create function 
--- above will get called.
+-- Add event listeners for all of the scene events we want to get called for!
+-- For this example. we need to add an event listener for the "create" 
+-- event so our create function above will get called.
 -- https://docs.coronalabs.com/api/type/EventListener/addEventListener.html
 -- https://docs.coronalabs.com/api/event/scene/index.html
 

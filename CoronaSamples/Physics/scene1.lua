@@ -2,10 +2,12 @@
 --
 -- scene1.lua
 --
+-- https://docs.coronalabs.com/api/library/physics/index.html
 ------------------------------------------------------------------------
 
 local physics = require( "physics" )
 
+-- https://docs.coronalabs.com/api/library/physics/setDrawMode.html
 physics.setDrawMode( "normal" )  -- The default Corona renderer, with no collision outlines.
 --physics.setDrawMode( "hybrid" )  -- Overlays collision outlines on normal display objects.
 --physics.setDrawMode( "debug" )   -- Shows collision engine outlines only.
@@ -18,30 +20,37 @@ local composer = require( "composer" )
 local scene = composer.newScene()
 
 -- Set the background color to a light blue color. 
-display.setDefault( "background", 0.2, 0.5, 1 )
+display.setDefault( "background", 0.2, 0.5, 1.0 )
 
+-- These will eventually hold our Mario and block images.
 local mario = nil
 local block = nil
-local spacePressed = false
 
--- forward declarations and other locals.
+-- Forward declarations and other locals.
 local screenW = display.contentWidth
 local screenH = display.contentHeight
 local halfW = display.contentWidth*0.5
 local halfH = display.contentWidth*0.5
 
+-- This 
 function onCollision( event )
 
-    print("onCollision: ", event.object1.name, event.object2.name)
+    if event.phase == "began" then
+        print( event.object1.name .. " collision began with " .. event.object2.name )
+    elseif event.phase == "ended" then
+        print( event.object1.name .. " collision ended with " .. event.object2.name )
+    end
 
 end
 
--- Declare a function on our scene called create.
 function scene:create( event )
 
     local sceneGroup = self.view
 
+    -- https://docs.coronalabs.com/api/library/physics/start.html
     physics.start()
+
+    -- https://docs.coronalabs.com/api/library/physics/setGravity.html
     physics.setGravity( 0, 30 )
 
     local options = 
@@ -69,6 +78,7 @@ function scene:create( event )
     ground.y = display.contentHeight
     ground.name = "ground"
     
+    -- https://docs.coronalabs.com/api/library/physics/addBody.html
     physics.addBody( ground, "static", { friction=0.3 } )
 
     --
@@ -119,7 +129,7 @@ end
 -- In this sample, we're using it to move our Mario image around via the 
 -- keyboard.
 --------------------------------------------------------------------------------
-local function onFrameEnter()
+local function onEnterFrame()
 
     if mario == nil then
         return
@@ -138,21 +148,21 @@ local function onFrameEnter()
 
     --print( string.format("Mario's x = %d, y = %d", mario.x, mario.y) )
 
-    if spacePressed == true then
+    if mario.isJumping == true then
 
         -- Apply some force to make Mario jump up.
+        -- https://docs.coronalabs.com/api/type/Body/applyLinearImpulse.html
         mario:applyLinearImpulse( 0, -1600, mario.x, mario.y )
 
+        mario.isJumping = false
     end
 
-    spacePressed = false
+    local offScreen = 200
 
-    local offscreen = 200
-
-    if mario.x > screenW + offscreen then
-        mario.x = -offscreen
-    elseif mario.x < -offscreen then
-        mario.x = screenW + offscreen
+    if mario.x > screenW + offScreen then
+        mario.x = -offScreen
+    elseif mario.x < -offScreen then
+        mario.x = screenW + offScreen
     end
 
     -- If Mario falls off the ground - reset his linear velocity and move him
@@ -165,10 +175,10 @@ local function onFrameEnter()
 
     end
 
-    if block.x > screenW + offscreen then
-        block.x = -offscreen
-    elseif block.x < -offscreen then
-        block.x = screenW + offscreen
+    if block.x > screenW + offScreen then
+        block.x = -offScreen
+    elseif block.x < -offScreen then
+        block.x = screenW + offScreen
     end
 
     -- If block falls off the ground - reset both its linear & angular velocity 
@@ -185,7 +195,7 @@ local function onFrameEnter()
 
 end
 
-local function onKeyEvent( event )
+local function onKey( event )
 
     if event.keyName == "left" then
 
@@ -210,7 +220,7 @@ local function onKeyEvent( event )
     elseif event.keyName == "space" then
 
         if event.phase == "down" then
-            spacePressed = true 
+            mario.isJumping = true 
         end
 
         return true
@@ -232,8 +242,10 @@ function scene:show( event )
 
 		-- If the scene has been shown - add our listeners so we can start
 		-- moving our Mario!
-		Runtime:addEventListener( "enterFrame", onFrameEnter )
-		Runtime:addEventListener( "key", onKeyEvent )
+		Runtime:addEventListener( "enterFrame", onEnterFrame )
+		Runtime:addEventListener( "key", onKey )
+
+        -- https://docs.coronalabs.com/daily/api/event/collision/index.html
         Runtime:addEventListener( "collision", onCollision )
 
 	end
@@ -244,12 +256,12 @@ function scene:hide( event )
 
 	local phase = event.phase
 	
-	if event.phase == "will" then
+	if phase == "will" then
 
 		-- If the scene is going to be hidden - remove our listeners.
 		-- There's no reason to move our Mario if no one can see him.
-		Runtime:removeEventListener( "enterFrame", onFrameEnter )
-		Runtime:removeEventListener( "key", onKeyEvent )
+		Runtime:removeEventListener( "enterFrame", onEnterFrame )
+		Runtime:removeEventListener( "key", onKey )
         Runtime:removeEventListener( "collision", onCollision )
 
 	end	
@@ -258,8 +270,7 @@ end
 
 ------------------------------------------------------------------------
 
--- Add an event listener for the create event so our create function 
--- above will get called.
+-- Add event listeners for all of the scene events we want to get called for!
 scene:addEventListener( "create", scene )
 scene:addEventListener( "show", scene )
 scene:addEventListener( "hide", scene )

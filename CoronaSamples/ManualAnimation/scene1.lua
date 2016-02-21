@@ -25,7 +25,7 @@ local mario = nil
 local prevTime = 0
 
 -- Set the background color to a light blue color. 
-display.setDefault( "background", 0.2, 0.5, 1 )
+display.setDefault( "background", 0.2, 0.5, 1.0 )
 
 
 function scene:create( event )
@@ -57,7 +57,7 @@ end
 ------------------------------------------------------------------------
 -- A call to the getDeltaTime() utility function returns how much time 
 -- has elapsed since the last time we called it. It's basically only 
--- used by the listener function onFrameEnter() to scale animation 
+-- used by the listener function onEnterFrame() to scale animation 
 -- values.
 ------------------------------------------------------------------------
 local function getDeltaTime()
@@ -70,7 +70,7 @@ local function getDeltaTime()
 
 end
 
-local function onFrameEnter()
+local function onEnterFrame()
 
 	local deltaTime = getDeltaTime()
 
@@ -127,7 +127,7 @@ function scene:show( event )
 
 		-- If the scene has been shown - add our listener so we can start
 		-- animating our Mario!
-		Runtime:addEventListener( "enterFrame", onFrameEnter )
+		Runtime:addEventListener( "enterFrame", onEnterFrame )
 
 	end
 
@@ -137,11 +137,11 @@ function scene:hide( event )
 
 	local phase = event.phase
 	
-	if event.phase == "will" then
+	if phase == "will" then
 
 		-- If the scene is going to be hidden - remove our listener.
 		-- There's no reason animate our Mario if no one can see him.
-		Runtime:removeEventListener( "enterFrame", onFrameEnter )
+		Runtime:removeEventListener( "enterFrame", onEnterFrame )
 
 	end	
 	
@@ -149,7 +149,7 @@ end
 
 ------------------------------------------------------------------------
 
--- Add our event listeners so we can get notified of these scene events!
+-- Add event listeners for all of the scene events we want to get called for!
 scene:addEventListener( "create", scene )
 scene:addEventListener( "show", scene )
 scene:addEventListener( "hide", scene )
