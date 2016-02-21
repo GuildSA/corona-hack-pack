@@ -37,8 +37,18 @@ function scene:create( event )
 
 	local sceneGroup = self.view
 
+    local options = 
+    {
+        text = "Use your keyboard's arrow keys to move Mario!",
+        x = 500,
+        y = 150,
+        width = 700,
+        font = native.systemFont,   
+        fontSize = 55,
+        align = "center"
+    }
 
-    local helpText = display.newText( "Use your laptop's keyboard to move Mario!", 500, 150, native.systemFont, 55 )
+    local helpText = display.newText( options )
     helpText:setFillColor( 1.0, 0.0, 0.0 )
 
 
