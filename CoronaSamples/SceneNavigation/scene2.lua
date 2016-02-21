@@ -38,7 +38,7 @@ function scene:create( event )
 
 	-- https://docs.coronalabs.com/api/library/widget/newButton.html
 
-	local button = widget.newButton {
+	local button = widget.newButton( {
 
 		width = 380,
 		height = 100,
@@ -47,8 +47,8 @@ function scene:create( event )
 		label = "Go To Scene 1",
 		labelColor = { default = { 1.0, 1.0, 1.0, 1.0 }, },
 		fontSize = 50,
-		onEvent = onEventListener,
-	}
+		onEvent = onEventListener
+	} )
 
 	button.x = 380
 	button.y = 400
