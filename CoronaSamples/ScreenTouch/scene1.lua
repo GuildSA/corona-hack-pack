@@ -17,8 +17,9 @@ display.setDefault( "background", 0.2, 0.5, 1.0 )
 -- This will eventually hold our Mario image.
 local mario = nil
 
--- This is our call-back function for touch events on our background.
-local function onBackgroundTouch(event)
+-- This is our call-back function for touch events on our background 
+-- rectangle.
+local function onBackgroundTouch( event )
 
 	if event.phase == "ended" then 
 
@@ -26,9 +27,9 @@ local function onBackgroundTouch(event)
 		--mario.x = event.x
 		--mario.y = event.y
 
-		-- Or we could move Mario by using transition.to. This will cause
-		-- Mario to smoothly move from his old x,y position to the new 
-		-- his new x,y position.
+		-- Or, we could move Mario by using transition.to. This will cause
+		-- Mario to smoothly move from his old x,y position to the his new 
+		-- new x,y position.
 		transition.to( mario, { time = 500, x = event.x, y = event.y } )
 
 	end
