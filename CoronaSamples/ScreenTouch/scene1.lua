@@ -17,6 +17,12 @@ display.setDefault( "background", 0.2, 0.5, 1.0 )
 -- This will eventually hold our Mario image.
 local mario = nil
 
+-- Forward declarations and other locals.
+local screenW = display.contentWidth
+local screenH = display.contentHeight
+local halfW = display.contentWidth * 0.5
+local halfH = display.contentHeight * 0.5
+
 -- This is our call-back function for touch events on our background 
 -- rectangle.
 local function onBackgroundTouch( event )
@@ -45,9 +51,9 @@ function scene:create( event )
 	-- Create a simple rectangle object to catch touch events. We will use this to
 	-- move Mario from his current position to a new position which will be specified
 	-- by touching the screen.
-	local background = display.newRect( 0, 0, display.contentWidth, display.contentHeight )
-	background.x = display.contentWidth*0.5
-	background.y = display.contentHeight*0.5
+	local background = display.newRect( 0, 0, screenW, screenH )
+	background.x = halfW
+	background.y = halfH
 	background:setFillColor( 0.2, 0.5, 1.0 )
 	background:addEventListener( "touch", onBackgroundTouch )
 

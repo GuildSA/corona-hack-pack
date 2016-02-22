@@ -29,10 +29,9 @@ local block = nil
 -- Forward declarations and other locals.
 local screenW = display.contentWidth
 local screenH = display.contentHeight
-local halfW = display.contentWidth*0.5
-local halfH = display.contentWidth*0.5
+local halfW = display.contentWidth * 0.5
+local halfH = display.contentHeight * 0.5
 
--- This 
 function onCollision( event )
 
     if event.phase == "began" then
