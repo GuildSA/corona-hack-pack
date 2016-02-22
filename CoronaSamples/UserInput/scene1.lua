@@ -17,6 +17,10 @@ display.setDefault( "background", 0.2, 0.5, 1.0 )
 -- This will eventually hold our Mario image.
 local mario = nil
 
+-- This is used by the getDeltaTime() utility function to keep track 
+-- of how much time has elapsed since the last frame of rendering.
+local prevTime = 0
+
 ------------------------------------------------------------------------
 -- A call to the getDeltaTime() utility function returns how much time 
 -- has elapsed since the last time we called it. It's basically only 
