@@ -198,17 +198,12 @@ function scene:hide( event )
 	
 end
 
-function scene:destroy( event )
-
-end
-
 ------------------------------------------------------------------------
 
 -- Add event listeners for all of the scene events we want to get called for!
 scene:addEventListener( "create", scene )
 scene:addEventListener( "show", scene )
 scene:addEventListener( "hide", scene )
-scene:addEventListener( "destroy", scene )
 
 ------------------------------------------------------------------------
 
