@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------
--- gamePad.lua
+-- dpad.lua
 --
 -- You can use this module to create an on-screen D-pad controller which
 -- would be suitable for mobile devices that don't have a physical 
@@ -7,15 +7,15 @@
 --
 -- Example Usage:
 --
--- Include the "gamePad" library in your scene.
+-- Include the "dpad" library in your scene.
 --
---     local gamePad = require( "gamePad" )
+--     local dpad = require( "dpad" )
 --
--- Use the gamePad to create a new gamePad for the player.
+-- Use the dpad module to create a new D-pad for the player.
 -- This one is sized at 450, uses the image "pad.png" for the graphics
 -- and has an alpha value of 0.5 so it will blend into the scene's art.
 --
---     local playerGamePad = gamePad.newGamePad( 450, "pad.png", 0.5 )
+--     local gamePad = dpad.newGamePad( 450, "pad.png", 0.5 )
 ------------------------------------------------------------------------
 
 local M = {}
