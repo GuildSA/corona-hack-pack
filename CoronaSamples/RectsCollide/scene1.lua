@@ -14,11 +14,11 @@ local scene = composer.newScene()
 -- Include Corona's "widget" module.
 local widget = require( "widget" )
 
--- Include our "gamePad" module.
-local gamePad = require( "gamePad" )
+-- Include our "dpad" module.
+local dpad = require( "dpad" )
 
--- Use gamePad to create a new gamePad for the player.
-local playerGamePad = gamePad.newGamePad( 450, "pad.png", 0.5 )
+-- Use dpad to create a new gamePad for the player.
+local gamePad = dpad.newGamePad( 450, "pad.png", 0.5 )
 
 -- Forward declarations and other locals
 local playerSprite = nil
@@ -80,21 +80,21 @@ function onEnterFrame( event )
     -- Move the player's fighter around via the player's game pad.
     --
 
-	if playerGamePad.isMoving then
+	if gamePad.isMoving then
 
-		if playerGamePad.isMovingUp then
+		if gamePad.isMovingUp then
 			playerSprite.y = playerSprite.y - (movementSpeed * deltaTime )
 		end
 
-		if playerGamePad.isMovingDown then
+		if gamePad.isMovingDown then
 			playerSprite.y = playerSprite.y + (movementSpeed * deltaTime )
 		end
 
-		if playerGamePad.isMovingLeft then
+		if gamePad.isMovingLeft then
 			playerSprite.x = playerSprite.x - (movementSpeed * deltaTime )
 		end
 
-		if playerGamePad.isMovingRight then
+		if gamePad.isMovingRight then
 			playerSprite.x = playerSprite.x + (movementSpeed * deltaTime )
 		end
 
