@@ -63,6 +63,9 @@ local function hasCollided( obj1, obj2 )
         return false
     end
  
+ 	-- Use the contentBounds property our our two objects to see if any 
+ 	-- corner of one rectangle is inside the bounds of the other rectangle.
+
     local left = obj1.contentBounds.xMin <= obj2.contentBounds.xMin and obj1.contentBounds.xMax >= obj2.contentBounds.xMin
     local right = obj1.contentBounds.xMin >= obj2.contentBounds.xMin and obj1.contentBounds.xMin <= obj2.contentBounds.xMax
     local up = obj1.contentBounds.yMin <= obj2.contentBounds.yMin and obj1.contentBounds.yMax >= obj2.contentBounds.yMin
