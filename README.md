@@ -462,7 +462,7 @@ Functions Used:
 
 ###The Corona SDK - Ep 12 - Directional Game Pad
 
-In this video we will learn how to create a directional pad game or D-Pad using a custom module. We'll also discuss how to create a moving star field that could be used in a space theme game.
+In this video we will learn how to create a directional pad game or D-Pad using a custom module. We'll also discuss how to create a moving star field that could be used in a space themed game.
 
 [Video Link](https://youtu.be/ms2klDf-vAI)
 
