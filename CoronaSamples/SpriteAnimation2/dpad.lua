@@ -188,15 +188,19 @@ local function createPadButton( buttonID, offsetX, offsetY )
 end
 
 ------------------------------------------------------------------------
--- Create a new game pad.
+-- Create a new D-pad pad.
 ------------------------------------------------------------------------
-M.newGamePad = function( size, image, alpha, enableDiagonalButtons )
+M.newDPad = function( size, image, alpha, enableDiagonalButtons )
 
 	padSize = size
 	padImage = image
 
 	if alpha == nil then
 		alpha = 1.0
+	end
+
+	if enableDiagonalButtons == nil then
+		enableDiagonalButtons = true
 	end
 
 	padGroup = display.newGroup()

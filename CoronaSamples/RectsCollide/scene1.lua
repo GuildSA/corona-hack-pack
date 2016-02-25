@@ -17,8 +17,10 @@ local widget = require( "widget" )
 -- Include our "dpad" module.
 local dpad = require( "dpad" )
 
--- Use dpad to create a new gamePad for the player.
-local gamePad = dpad.newGamePad( 450, "pad.png", 0.5 )
+-- Use dpad to create a new game D-pad for the player.
+-- Create it with a size of 450, using the pad.png image, and with an 
+-- alpha of 0.5.
+local gamePad = dpad.newDPad( 450, "pad.png", 0.5 )
 
 -- Forward declarations and other locals
 local playerSprite = nil

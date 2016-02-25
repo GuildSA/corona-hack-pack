@@ -15,10 +15,10 @@ local scene = composer.newScene()
 -- Include our "dpad" module.
 local dpad = require( "dpad" )
 
--- Use dpad to create a new gamePad for the player.
+-- Use dpad to create a new game D-pad for the player.
 -- Create it with a size of 450, using the pad.png image, with an 
 -- alpha of 0.8, and disable diagonal travel.
-local gamePad = dpad.newGamePad( 450, "pad.png", 0.8, false )
+local gamePad = dpad.newDPad( 450, "pad.png", 0.8, false )
 
 -- Set the background color to a light blue color. 
 display.setDefault( "background", 0.2, 0.5, 1.0 )
