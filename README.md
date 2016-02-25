@@ -279,7 +279,7 @@ Source Used: lua_6_reference_vs_copy.lua
 
 ##List of Corona SDK Videos
 
-The Corona SDK - Ep 1 - An Introduction
+###The Corona SDK - Ep 1 - An Introduction
 
 This video is an introduction to the Corona SDK with a brief comparison to a few other mobile game development platforms such as Unity and Marmalade. I will also demonstrate how to create a starter game using one of Corona's project templates and show you how to launch it from inside Sublime Text Edit 3.
 
@@ -289,7 +289,7 @@ Sample Used: None
 
 --------------------------------------------------------------------------------
 
-The Corona SDK - Ep 2 - Colors, Simple Text and an Image
+###The Corona SDK - Ep 2 - Colors, Simple Text and an Image
 
 In this video we will start to learn the basics of the Corona SDK by exploring a very minimal or simple app that sets the game's background color, creates some on-screen text and loads a single .png image file.
 
@@ -306,7 +306,7 @@ Functions Used:
 
 --------------------------------------------------------------------------------
 
-The Corona SDK - Ep 3 - Creating Scenes
+###The Corona SDK - Ep 3 - Creating Scenes
 
 In this video we will learn how to use a special module from Corona called "composer" that allows us to break up our game code into scenes.
 
@@ -322,7 +322,7 @@ Functions Used:
 
 --------------------------------------------------------------------------------
 
-The Corona SDK - Ep 4 - Navigating Between Scenes
+###The Corona SDK - Ep 4 - Navigating Between Scenes
 
 In this video we will learn how to use a special module from Corona called "composer" to navigate between two scenes. We will also learn how to create and add a button to our game's user interface using the "widget" module.
 
@@ -340,7 +340,7 @@ Functions Used:
 
 --------------------------------------------------------------------------------
 
-The Corona SDK - Ep 5 - More on Text and Images
+###The Corona SDK - Ep 5 - More on Text and Images
 
 In this video we will learn more about working with text such as using custom fonts and how to scale and rotate image objects.
 
@@ -357,7 +357,7 @@ Functions Used:
 
 --------------------------------------------------------------------------------
 
-The Corona SDK - Ep 6 - User Input
+###The Corona SDK - Ep 6 - User Input
 
 In this video we will learn how to collect user input from the keyboard and use it to move an image around the screen. I'll also discuss how ot use delta-time or, the amount of time that elapsed since the last frame, so we can move objects at consistent speed regardless of game's frame rate.
 
@@ -375,7 +375,7 @@ Functions Used:
 
 --------------------------------------------------------------------------------
 
-The Corona SDK - Ep 7 - Touch Events and Transitions
+###The Corona SDK - Ep 7 - Touch Events and Transitions
 
 In this video we will learn how to collect user input such as touch events on the game's scene and we'll learn how to smoothly move an image from one place to another using the transition.to() function which is part of Corona's transition module.
 
@@ -390,7 +390,7 @@ Functions Used:
 
 --------------------------------------------------------------------------------
 
-The Corona SDK - Ep 8 - Chaining Transitions & Easing Functions
+###The Corona SDK - Ep 8 - Chaining Transitions & Easing Functions
 
 In this video we will learn how to chain two or more transitions together using transition.to(). We'll also learn how to use easing functions or algorithms to alter the speed of the transition over time so the image moves in a more natural way.
 
@@ -405,7 +405,7 @@ Functions Used:
 
 --------------------------------------------------------------------------------
 
-The Corona SDK - Ep 9 - Manual Animation
+###The Corona SDK - Ep 9 - Manual Animation
 
 In this video we will learn how to manually animate our Mario image so it appears to be jumping around the scene and bouncing off the scene's sides using simple math.
 
@@ -421,7 +421,7 @@ Functions Used:
 
 --------------------------------------------------------------------------------
 
-The Corona SDK - Ep 10 - Sprite Animation
+###The Corona SDK - Ep 10 - Sprite Animation
 
 In this video we will learn how to create animated sprites using a sprite sheet.
 
@@ -440,7 +440,7 @@ Functions Used:
 
 --------------------------------------------------------------------------------
 
-The Corona SDK - Ep 11 - Animation Sequences
+###The Corona SDK - Ep 11 - Animation Sequences
 
 In this video we will learn how to create several animation sequences for an animated sprite using a single sprite sheet.
 
@@ -460,7 +460,7 @@ Functions Used:
 
 --------------------------------------------------------------------------------
 
-The Corona SDK - Ep 12 - Directional Game Pad
+###The Corona SDK - Ep 12 - Directional Game Pad
 
 In this video we will learn how to create a directional pad game or D-Pad using a custom module. We'll also discuss how to create a moving star field that could be used in a space theme game.
 
@@ -476,7 +476,7 @@ Functions Used:
 
 --------------------------------------------------------------------------------
 
-The Corona SDK - Ep 13 - Intro to the Physics Engine
+###The Corona SDK - Ep 13 - Intro to the Physics Engine
 
 In this video we will learn the basics of working with Corona's physics engine by building a small platformer styled game.
 
