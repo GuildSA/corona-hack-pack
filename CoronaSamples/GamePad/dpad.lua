@@ -15,7 +15,15 @@
 -- This one is sized at 450, uses the image "pad.png" for the graphics
 -- and has an alpha value of 0.5 so it will blend into the scene's art.
 --
---     local gamePad = dpad.newGamePad( 450, "pad.png", 0.5 )
+--     local gamePad = dpad.newDPad( 450, "pad.png", 0.5 )
+--
+-- By default, you get support for moving diagonally, but if you only
+-- want your player to be able to move up, down, left, and right, you
+-- can disable the support for diagonal movement by passing a false as 
+-- the fourth argument:
+--
+--     local gamePad = dpad.newDPad( 450, "pad.png", 0.5, false )
+--
 ------------------------------------------------------------------------
 
 local M = {}
