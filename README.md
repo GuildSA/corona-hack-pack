@@ -485,7 +485,6 @@ In this video we will learn the basics of working with Corona's physics engine b
 Sample Used: Physics
 
 Functions Used:
-
 	physics.setDrawMode()
 	physics.start()
 	physics.setGravity()
