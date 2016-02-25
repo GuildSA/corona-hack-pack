@@ -188,6 +188,90 @@ Use Package Control to install **BracketHighlighter**
 
 Go to  the [Corona SDK website](https://coronalabs.com/), sign up for a free account, and download the Corona SDK from [here](http://developer.coronalabs.com/user/login?destination=downloads/coronasdk).
 
+--------------------------------------------------------------------------------
 
+##List of Lua Videos
 
+###Learning Lua - Ep 1 - Variables
+
+In this video we will actually start to learn Lua scripting using our new Lua & Corona SDK development environment.
+
+[Video Link](https://youtu.be/G8RUJxg1toU)
+
+Source Used: lua_1_variables.lua
+
+Keywords Used: local
+
+Functions Used: print(), type(), tonumber(), tostring()
+
+--------------------------------------------------------------------------------
+
+###Learning Lua - Ep 2 - Tables
+
+In this video we will learn about Lua's most powerful data type, tables, and how they're used to hold and organize collections of other data types such as numbers, strings, and even other tables.
+
+[Video Link](https://youtu.be/3m1qjbd2l6s)
+
+Source Used: lua_2_tables.lua
+
+Functions Used: table.insert(), table.remove()
+
+--------------------------------------------------------------------------------
+
+###Learning Lua - Ep 3 - Conditional Logic
+
+In this video we will learn how to use Lua's 'if' statements to write conditional logic that allows our scripts to perform different actions based on the value of a variable.
+
+[Video Link](https://youtu.be/BASyTw7aG9o)
+
+Source Used: lua_3_if_statements.lua
+
+Keywords Used: if, then, else, elseif, end, and, or, not
+
+Operators Used:
+
+	<   Less than
+	<=  Less than or equal to
+	>   Greater than
+	>=  Greater than or equal to
+	==  Is equal to
+	~=  Is not equal to
+
+--------------------------------------------------------------------------------
+
+###Learning Lua - Ep 4 - Looping or Iterating
+
+In this video we will learn how to use Lua's 'for' and 'while' keywords to perform some repeated action or to loop or iterate through a table full of data.
+
+[Video Link](https://youtu.be/h2jj6zFtxWE)
+
+Source Used: lua_4_for_and_while_loops.lua
+
+Keywords Used: for, then, end, do, while, repeat, until
+
+Operators Used: # Length Operator
+
+Functions Used: pairs(), ipairs()
+
+--------------------------------------------------------------------------------
+
+###Learning Lua - Ep 5 - Declaring Functions
+
+In this video we will learn how to declare or write our very own functions in Lua. Functions are very important because they allow us to organize or reuse blocks of Lua code which we may need to use repeatedly.
+
+[Video Link](https://youtu.be/tuz9wt6iRmU)
+
+Source Used: lua_5_functions.lua
+
+Keywords Used: function
+
+--------------------------------------------------------------------------------
+
+###Learning Lua - Ep 6 - Reference vs Copy
+
+In this video we will learn the differences of working with table variables, which are implemented in Lua as references vs working with the other data types such as number, string, and boolean, which always generate copies during assignments and when passed into to functions.
+
+[Video Link](https://youtu.be/q76ydtcuIN8)
+
+Source Used: lua_6_reference_vs_copy.lua
 
