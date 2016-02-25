@@ -57,17 +57,18 @@ function scene:create( event )
 
 	local sceneGroup = self.view
 
-	-- These animation frames are 120 x 130 but using this size directly will cause edge 
+	-- Link's animation frames are 120 x 130 but using this size directly will cause edge 
 	-- artifacts to show up while animating. This is a problem for our link sprite sheet 
 	-- because the artist packed the frames in too close together.
 	--local linkSpriteSheet = graphics.newImageSheet( "link.png", { width = 120, height = 130, numFrames = 80 } )
 
-	-- To prevent these edge artifacts, treat the animation frames as 118 x 128 and add a 
-	-- border of 1 pixel all the way around the frame. This will keep the edge of one frame 
-	-- from bleeding into the next.
+	-- To prevent these edge artifacts, treat the animation frames as 118 x 128 with a 
+	-- 1 pixel border all the way around the frame. This will keep pixels on the edge of 
+	-- one frame from bleeding into a neighboring frame.
 	local linkSpriteSheet = graphics.newImageSheet( "link.png", { width = 118, height = 128, numFrames = 80, border = 1 } )
 
-	local sequenceData = {
+	local linkAnimationSequences =
+	{
 		{ name="idle_down", sheet=linkSpriteSheet, start=1, count=3, time=800, loopCount=1, loopDirection="bounce" },
 		{ name="idle_left", sheet=linkSpriteSheet, start=11, count=3, time=800, loopCount=1, loopDirection="bounce" },
 		{ name="idle_up", sheet=linkSpriteSheet, start=21, count=1, time=800, loopCount=1, loopDirection="bounce" },
@@ -79,13 +80,13 @@ function scene:create( event )
 		{ name="walk_right", sheet=linkSpriteSheet, start=71, count=10, time=1000, loopCount=0 }
 	}
 	
-	linkSprite = display.newSprite( linkSpriteSheet, sequenceData )
+	linkSprite = display.newSprite( linkSpriteSheet, linkAnimationSequences )
 	linkSprite.x = halfW
 	linkSprite.y = halfH
 	linkSprite:setSequence( "idle_down" )
 	linkSprite:play()
 
-	-- Add these variables for our use!
+	-- Add these variables for our own use!
 	linkSprite.isMovingUp = false
 	linkSprite.isMovingDown = false
 	linkSprite.isMovingLeft = false
@@ -110,6 +111,7 @@ function onEnterFrame( event )
 
 			linkSprite.y = linkSprite.y - (movementSpeed * deltaTime)
 
+			-- If Link is not already animating in this direction - do it!
 			if linkSprite.walkingDirection ~= "up" then
 
 				linkSprite.walkingDirection = "up"
@@ -124,6 +126,7 @@ function onEnterFrame( event )
 
 			linkSprite.y = linkSprite.y + (movementSpeed * deltaTime)
 
+			-- If Link is not already animating in this direction - do it!
 			if linkSprite.walkingDirection ~= "down" then
 
 				linkSprite.walkingDirection = "down"
@@ -138,6 +141,7 @@ function onEnterFrame( event )
 
 			linkSprite.x = linkSprite.x - (movementSpeed * deltaTime)
 
+			-- If Link is not already animating in this direction - do it!
 			if linkSprite.walkingDirection ~= "left" then
 
 				linkSprite.walkingDirection = "left"
@@ -152,6 +156,7 @@ function onEnterFrame( event )
 
 			linkSprite.x = linkSprite.x + (movementSpeed * deltaTime)
 
+			-- If Link is not already animating in this direction - do it!
 			if linkSprite.walkingDirection ~= "right" then
 
 				linkSprite.walkingDirection = "right"
@@ -164,8 +169,11 @@ function onEnterFrame( event )
 
 	else
 
-		-- If the player stops walking, make Link idle facing in his last known
+		--
+		-- If the player stops moving, make Link idle facing in his last known
 		-- direction of travel.
+		--
+
 		if linkSprite.walkingDirection ~= nil then
 
 			if linkSprite.walkingDirection == "up" then
