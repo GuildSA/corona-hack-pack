@@ -269,9 +269,230 @@ Keywords Used: function
 
 ###Learning Lua - Ep 6 - Reference vs Copy
 
-In this video we will learn the differences of working with table variables, which are implemented in Lua as references vs working with the other data types such as number, string, and boolean, which always generate copies during assignments and when passed into to functions.
+In this video we will learn the differences of working with table variables, which are implemented in Lua as references vs working with the other data types such as number, string, and boolean, which always generate copies during assignments and when passed into functions.
 
 [Video Link](https://youtu.be/q76ydtcuIN8)
 
 Source Used: lua_6_reference_vs_copy.lua
 
+--------------------------------------------------------------------------------
+
+##List of Corona SDK Videos
+
+The Corona SDK - Ep 1 - An Introduction
+
+This video is an introduction to the Corona SDK with a brief comparison to a few other mobile game development platforms such as Unity and Marmalade. I will also demonstrate how to create a starter game using one of Corona's project templates and show you how to launch it from inside Sublime Text Edit 3.
+
+[Video Link](https://youtu.be/kzG4DKzTgZk)
+
+Sample Used: None
+
+--------------------------------------------------------------------------------
+
+The Corona SDK - Ep 2 - Colors, Simple Text and an Image
+
+In this video we will start to learn the basics of the Corona SDK by exploring a very minimal or simple app that sets the game's background color, creates some on-screen text and loads a single .png image file.
+
+[Video Link](https://youtu.be/Lj3ui4VN1Fc)
+
+Sample Used: Simple
+
+Functions Used:
+
+	display.setStatusBar() 
+	display.setDefault()
+	display.newText()
+	display.newImageRect()
+
+--------------------------------------------------------------------------------
+
+The Corona SDK - Ep 3 - Creating Scenes
+
+In this video we will learn how to use a special module from Corona called "composer" that allows us to break up our game code into scenes.
+
+[Video Link](https://youtu.be/lT2CY0XjhGc)
+
+Sample Used: LoadImage
+
+Functions Used:
+
+	composer.gotoScene()
+	composer.newScene()
+	addEventListener( "create" )
+
+--------------------------------------------------------------------------------
+
+The Corona SDK - Ep 4 - Navigating Between Scenes
+
+In this video we will learn how to use a special module from Corona called "composer" to navigate between two scenes. We will also learn how to create and add a button to our game's user interface using the "widget" module.
+
+[Video Link](https://youtu.be/9QzLsgxNMT0)
+
+Sample Used: SceneNavigation
+
+Functions Used:
+
+	composer.gotoScene()
+	widget.newButton()
+	ddEventListener( "show" )
+	addEventListener( "hide" )
+	addEventListener( "destroy" )
+
+--------------------------------------------------------------------------------
+
+The Corona SDK - Ep 5 - More on Text and Images
+
+In this video we will learn more about working with text such as using custom fonts and how to scale and rotate image objects.
+
+[Video Link](https://youtu.be/V0AgaGzl1YU)
+
+Sample Used: LoadImage, Text
+
+Functions Used:
+
+	display.newText()
+	setFillColor()
+	xScale
+	rotation
+
+--------------------------------------------------------------------------------
+
+The Corona SDK - Ep 6 - User Input
+
+In this video we will learn how to collect user input from the keyboard and use it to move an image around the screen. I'll also discuss how ot use delta-time or, the amount of time that elapsed since the last frame, so we can move objects at consistent speed regardless of game's frame rate.
+
+[Video Link](https://youtu.be/FB0ZayijyiY)
+
+Sample Used: UserInput
+
+Functions Used:
+
+	system.getTimer()
+	Runtime:addEventListener( "enterFrame" )
+	Runtime:addEventListener( "key" )
+	Runtime:removeEventListener( "enterFrame" )
+	Runtime:removeEventListener( "key" )
+
+--------------------------------------------------------------------------------
+
+The Corona SDK - Ep 7 - Touch Events and Transitions
+
+In this video we will learn how to collect user input such as touch events on the game's scene and we'll learn how to smoothly move an image from one place to another using the transition.to() function which is part of Corona's transition module.
+
+[Video Link](https://youtu.be/Ui-iJNVi_oI)
+
+Sample Used: ScreenTouch
+
+Functions Used:
+
+	addEventListener( "touch" )
+	transition.to()
+
+--------------------------------------------------------------------------------
+
+The Corona SDK - Ep 8 - Chaining Transitions & Easing Functions
+
+In this video we will learn how to chain two or more transitions together using transition.to(). We'll also learn how to use easing functions or algorithms to alter the speed of the transition over time so the image moves in a more natural way.
+
+[Video Link](https://youtu.be/L6DB1-U-IKE)
+
+Sample Used: TransitionTo
+
+Functions Used:
+
+	transition.to()
+	easing.outExpo
+
+--------------------------------------------------------------------------------
+
+The Corona SDK - Ep 9 - Manual Animation
+
+In this video we will learn how to manually animate our Mario image so it appears to be jumping around the scene and bouncing off the scene's sides using simple math.
+
+[Video Link](https://youtu.be/r6MJ2Ad7UW4)
+
+Sample Used: ManualAnimation
+
+Functions Used:
+
+	system.getTimer()
+	Runtime:addEventListener( "enterFrame" )
+	Runtime:removeEventListener( "enterFrame" )
+
+--------------------------------------------------------------------------------
+
+The Corona SDK - Ep 10 - Sprite Animation
+
+In this video we will learn how to create animated sprites using a sprite sheet.
+
+[Video Link](https://youtu.be/ltDDDv-kFZE)
+
+Sample Used: SpriteAnimation
+
+Functions Used:
+
+	graphics.newImageSheet()
+	display.newSprite()
+	play()
+	addEventListener( "sprite" )
+	isVisible
+	removeSelf()
+
+--------------------------------------------------------------------------------
+
+The Corona SDK - Ep 11 - Animation Sequences
+
+In this video we will learn how to create several animation sequences for an animated sprite using a single sprite sheet.
+
+[Video Link](https://youtu.be/dLjSZiWFgoc)
+
+Sample Used: SpriteAnimation2
+
+Functions Used:
+
+	graphics.newImageSheet()
+	display.newSprite()
+	setSequence()
+	play()
+	border
+	loopCount
+	loopDirection
+
+--------------------------------------------------------------------------------
+
+The Corona SDK - Ep 12 - Directional Game Pad
+
+In this video we will learn how to create a directional pad game or D-Pad using a custom module. We'll also discuss how to create a moving star field that could be used in a space theme game.
+
+[Video Link](https://youtu.be/ms2klDf-vAI)
+
+Sample Used: GamePad
+
+Functions Used:
+
+	display.newGroup()
+	display.newCircle()
+	display.newRect()
+
+--------------------------------------------------------------------------------
+
+The Corona SDK - Ep 13 - Intro to the Physics Engine
+
+In this video we will learn the basics of working with Corona's physics engine by building a small platformer styled game.
+
+[Video Link](https://youtu.be/OL6BAXHN6Wk)
+
+Sample Used: Physics
+
+Functions Used:
+
+	physics.setDrawMode()
+	physics.start()
+	physics.setGravity()
+	physics.addBody()
+	isFixedRotation
+	applyForce()
+	applyLinearImpulse()
+	setLinearVelocity()
+	angularVelocity
+	rotation
