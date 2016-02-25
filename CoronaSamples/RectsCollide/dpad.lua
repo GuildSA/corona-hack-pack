@@ -196,7 +196,7 @@ local function createPadButton( buttonID, offsetX, offsetY )
 end
 
 ------------------------------------------------------------------------
--- Create a new D-pad pad.
+-- Create a new D-pad or directional control pad.
 ------------------------------------------------------------------------
 M.newDPad = function( size, image, alpha, enableDiagonalButtons )
 
