@@ -127,7 +127,7 @@ function scene:create( event )
             speed = speed
         }
 
-		starField[i].star:setFillColor( 255, 255, 255 )
+		starField[i].star:setFillColor( 1.0 )
 
 		starFieldGroup:insert( starField[i].star )
 

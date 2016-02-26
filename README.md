@@ -359,7 +359,7 @@ Functions Used:
 
 ###The Corona SDK - Ep 6 - User Input
 
-In this video we will learn how to collect user input from the keyboard and use it to move an image around the screen. I'll also discuss how ot use delta-time or, the amount of time that elapsed since the last frame, so we can move objects at consistent speed regardless of game's frame rate.
+In this video we will learn how to collect user input from the keyboard and use it to move an image around the screen. I'll also discuss how to use delta-time or, the amount of time that elapsed since the last frame, so we can move objects at consistent speed regardless of game's frame rate.
 
 [Video Link](https://youtu.be/FB0ZayijyiY)
 
