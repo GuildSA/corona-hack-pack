@@ -496,3 +496,14 @@ Functions Used:
 	setLinearVelocity()
 	angularVelocity
 	rotation
+
+--------------------------------------------------------------------------------
+
+###The Corona SDK - Ep 14 - Collision Between Two Rectangles
+
+In this video we will learn how to test if two rectangles overlap or collide. This is an important technique used in many non-physics based games such as Shoot-Em Ups or Space Shooter style games.
+
+[Video Link](https://youtu.be/2731yQsmtgg)
+
+Sample Used: RectsCollide
+
