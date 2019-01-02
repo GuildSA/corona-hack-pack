@@ -1,28 +1,6 @@
 # corona-hack-pack
 The corona-hack-pack is a collection of instructions, tutorials and code samples designed to help newbie coders learn the basics of scripting and game development using Lua and the Corona SDK.
 
-This educational resource is being developed by The Guild of Software Architects for the [hack|ed hackathon](http://hack-ed.ntec-inc.org/) in February 26, 2016. This hackathon was conceived and organized by [The North Texas Enterprise Center (NTEC)](http://www.ntec-inc.org/), [Parish Episcopal School](http://www.parishepiscopal.org/), [iLLUMINATE STEM](http://www.illuminatestem.org/) and the [Guild of Software Architects](https://guildsa.org/).
-
-If you're not familiar with GitHub, which is the website where this code is being hosted online, simply click on the "Download ZIP" button to get all the source code and learning materials. It can be found on the far right-hand side of this page.
-
-```
-NOTE: If you're reading these instructions directly from the README.md file in the CoronaHackPack root 
-folder you may find it hard to read due to the usage of GitHub's Markdown language. You should read it 
-from the project's GitHub page where it is more human readable.
-
-https://github.com/GuildSA/corona-hack-pack
-```
-
-All of the setup instructions below can be seen as Youtube videos on the [The Guild of Software Architects official Youtube channel](https://www.youtube.com/channel/UCNliD5b2EZk4aRqLF9D7Mvg)
-
-The video for setting up Lua & Corona on Mac OSX can be found [here](https://www.youtube.com/watch?v=hbr_gkvF9aU).
-
-[![Setting up Lua and the Corona SDK for Mac OSX](http://img.youtube.com/vi/hbr_gkvF9aU/mqdefault.jpg)](https://youtu.be/hbr_gkvF9aU)
-
-The video for setting up Lua & Corona on Windows can be found [here](https://www.youtube.com/watch?v=X88pGLkIlbg).
-
-[![Setting up Lua and the Corona SDK for Windows](http://img.youtube.com/vi/X88pGLkIlbg/mqdefault.jpg)](https://youtu.be/X88pGLkIlbg)
-
 ##Install Lua
 
 The Corona SDK will install it's own private version of Lua so the following steps to manually install Lua are only necessary if you want to run and test Lua scripts at a command prompt or terminal. 
